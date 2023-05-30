@@ -1,0 +1,17 @@
+Dear Hiring Manager,
+
+I am excited to apply for the Director of Data Science, Risk position at your multinational company. As an AI and machine learning executive with broad leadership experience across data scientists, software engineers, data analysts, and data engineers, I believe I have the skills and expertise necessary to lead your team of data scientists and analysts.
+
+In my previous role as Vice President of Data Science and Analytics at Overhaul, Inc, I was responsible for building a data organization with a focus on data engineering, data analytics, data science, and machine learning. I guided the team to deliver internal and external data-as-a-product features, provided direction for machine learning and data transformation pipelines, and achieved massive automation of data delivery to end customers. My efforts included transportation duration models, scoring of security events, and agent-based modeling of backhaul opportunities.
+
+I have an advanced degree and experience working across analytics and engineering organizations to deliver on collaborative project goals. I possess strong communication and people leadership skills, with an enterprise-first mindset that prioritizes collaboration with others. I am adept at combining engineering and science to help companies both unlock the value of data and create new products as they pivot to modern algorithmic-based business models.
+
+I am active in local meetups and conferences, presenting on a variety of Data Science and Machine Learning topics, as well as being an Advisory Board Member for UT-Austin, McCombs School of Business Masters of Science Business Analytics program since 2015.
+
+I am confident that my experience and expertise make me an ideal candidate for this position. I look forward to the opportunity to discuss my qualifications further.
+
+Thank you for considering my application.
+
+Sincerely,
+
+Brent Schneeman

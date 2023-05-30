@@ -1,0 +1,32 @@
+Director of Data Science, Risk
+
+Global Risk Decision Science and Data Capabilities is a key team in Risk & Compliance organization that ensures the company’s products and processes deliver robust fraud and credit decisions while providing a great customer experience and supporting the company's growth. We are a team of data and analytics driven experts with an outstanding ability and sense of mission to find solutions through innovation and collaboration.
+
+We are looking for an accomplished leader as Director of Data Science, Risk, who will lead a team of data scientists and will be responsible for developing and managing the fraud and credit machine learning models leading to best-in-class risk decision-making. The successful candidate will have deep knowledge and experience in data science, preferably in commercial and small business payments. The successful candidate will be collaborative and a strong communicator with high EQ to work in a matrixed organization. This position will report directly to the VP of Global Risk Decision Science and Data Capabilities.
+
+Roles And Responsibilities
+
+Lead a team of data scientists and analysts to build machine learning models
+Provide thought leadership in analytics for fraud and credit decisioning, and work together with Strategy and Operations teams to define, evaluate, and implement potential solutions
+Leverage technology and analytical techniques to optimize decisions while considering implications to customer experience
+Evaluate external opportunities (i.e. risk data providers, transaction monitoring solutions) to supplement internal capabilities with a firm understanding for tradeoffs in decisions for internal and external solutions
+Define data opportunity roadmaps to improve delivery gains against key performance indicators
+Collaborate with key stakeholders and cross-functional partners across the company including Risk Operations, Technology, Bank, Marketing, Finance, Legal, Risk and Compliance/BSA/AML.
+
+Experience And Abilities
+
+Bachelor’s degree required, advanced degree strongly preferred
+10+ years of experience leading an data or analytics team
+Evidence of working across analytics and engineering organizations to deliver on collaborative project goals
+Experience with analytics and data lifecycle management
+Understanding of analytics and engineering data ecosystems
+Ability to think critically in order to analyze problems and develop creative, practical and efficient solutions for a multinational company
+Strong communications skills that distill complex data and systems issues to both technical and non-technical audiences
+Strong people leadership and collaboration skills with enterprise-first mindset
+Leadership qualities that motivate collaboration with others, guiding the prioritization of initiatives
+Understanding of project management methodologies and the tradeoffs between them
+Payments industry experience a plus
+
+Key Words
+
+Data Science Management, Director Data Science, Director of Data Science, Director of Analytics, Manager Analytics, Manager Data Science
