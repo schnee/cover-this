@@ -1,13 +1,14 @@
-from dotenv import dotenv_values, load_dotenv
+from dotenv import dotenv_values
 from langchain.callbacks import get_openai_callback
 from langchain.chains import LLMChain
 from langchain.chains.summarize import load_summarize_chain
 from langchain.chat_models import ChatOpenAI
 from langchain.docstore.document import Document
-from langchain.document_loaders import (OnlinePDFLoader, PyPDFLoader,
-                                        UnstructuredFileLoader)
+from langchain.document_loaders import UnstructuredFileLoader
 from langchain.prompts import PromptTemplate
 from langchain.text_splitter import CharacterTextSplitter
+from pdf_utils import extract_text_from_pdf
+
 
 # This will (likely) generate mock interview questions based on the jobspec
 # and the resume. The resume is a PDF and the spec is
@@ -18,8 +19,6 @@ from langchain.text_splitter import CharacterTextSplitter
 # OPENAI_API_KEY={key value}
 # should be set in the .env file
 config = dotenv_values(".env")
-
-
 
 def count_tokens(chain, query):
     with get_openai_callback() as cb:
@@ -53,16 +52,14 @@ def main():
 
 
     #loader = OnlinePDFLoader("https://tworavens.ai/schneeman-brent-resume.pdf")
-    loader = PyPDFLoader("./schneeman-brent-resume.pdf")
-
-    the_resume = loader.load()
+    the_resume = extract_text_from_pdf("./schneeman-brent-resume.pdf" )
 
     text_loader = UnstructuredFileLoader("./job-spec.txt")
 
     the_spec = text_loader.load()
 
     # splitting the spec into chunks to summarize.
-    # using a 1000 token chunk size (with the default overlap)
+    # using a 1500 token chunk size (with the default overlap)
     # of 200 tokens) to attempt to extract specifics while 
     # maintaining overall context. This is 100% a guess
     text_splitter = CharacterTextSplitter(chunk_size=1500) 
@@ -80,22 +77,25 @@ def main():
     summarized_spec = chain_summarize.run(docs)
     print(summarized_spec)
 
-    questions = generate_cover(llm_generate, the_resume, summarized_spec)
+    questions = generate_questions(llm_generate, the_resume, summarized_spec)
     print(questions)
 
     # dump it out into a file
     with open('questions.txt', 'w') as f:
         f.writelines(questions)
 
-def generate_cover(llm_generate, the_resume, summarized_spec):
+def generate_questions(llm_generate, the_resume, summarized_spec):
     prompt_template = """You are the hiring manager for the jobspec below. You have
     a technical machine learning background and are interviewing the candidate represented
-    by the resume. Based on the jobspec and resume content, assess the candidate's qualifications and 
+    by the resume. Based on the resume and jobspec content, assess the candidate's qualifications and 
     generate mock interview questions focusing on their relevant experience and skills for the role.
-    Provide ten interview questions as a number list.
-        Jobspec: {jobspec}
+    Make sure to ask open-ended questions and question specific experiences in their resume. 
+    
         Resume: {resume}
-        Interview Questions:"""
+
+        Jobspec: {jobspec}
+
+        Here are 10 sample questions provided as a numbered list:"""
 
     PROMPT = PromptTemplate(
         template=prompt_template, input_variables=["jobspec", "resume"]
@@ -106,7 +106,9 @@ def generate_cover(llm_generate, the_resume, summarized_spec):
     # have multiple PhDs...).
 
     chain = LLMChain(llm=llm_generate, prompt=PROMPT)
-    mock_interview = chain.apply([{"jobspec": summarized_spec, "resume": the_resume[0].page_content}])
+    resume_content = the_resume#[0].page_content
+    print(resume_content)
+    mock_interview = chain.apply([{"jobspec": summarized_spec, "resume": resume_content}])
     questions = mock_interview[0]["text"]
     return questions
 
