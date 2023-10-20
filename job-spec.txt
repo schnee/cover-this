@@ -1,32 +1,26 @@
-Director of Data Science, Risk
+We are hiring a Director of Machine Learning for our Data Science and Machine Learning organization.
 
-Global Risk Decision Science and Data Capabilities is a key team in Risk & Compliance organization that ensures the company’s products and processes deliver robust fraud and credit decisions while providing a great customer experience and supporting the company's growth. We are a team of data and analytics driven experts with an outstanding ability and sense of mission to find solutions through innovation and collaboration.
+This is a leadership position that will have exposure across the entire business, influencing the vision and implementation of machine learning systems that analyze reviews, photos, and other user generated content, help consumers plan their perfect trip, and apply the latest advances in Generative AI technologies across Tripadvisor. You bring experience spanning Data Science, Machine Learning and AI, software engineering, and team leadership. This role offers a great opportunity for professional growth with the world’s largest travel guidance company. You will have a unique opportunity of helping millions of travelers with personalized trip planning content, and travel guidance on Tripadvisor.com.
 
-We are looking for an accomplished leader as Director of Data Science, Risk, who will lead a team of data scientists and will be responsible for developing and managing the fraud and credit machine learning models leading to best-in-class risk decision-making. The successful candidate will have deep knowledge and experience in data science, preferably in commercial and small business payments. The successful candidate will be collaborative and a strong communicator with high EQ to work in a matrixed organization. This position will report directly to the VP of Global Risk Decision Science and Data Capabilities.
+ 
 
-Roles And Responsibilities
+What You'll Do:
 
-Lead a team of data scientists and analysts to build machine learning models
-Provide thought leadership in analytics for fraud and credit decisioning, and work together with Strategy and Operations teams to define, evaluate, and implement potential solutions
-Leverage technology and analytical techniques to optimize decisions while considering implications to customer experience
-Evaluate external opportunities (i.e. risk data providers, transaction monitoring solutions) to supplement internal capabilities with a firm understanding for tradeoffs in decisions for internal and external solutions
-Define data opportunity roadmaps to improve delivery gains against key performance indicators
-Collaborate with key stakeholders and cross-functional partners across the company including Risk Operations, Technology, Bank, Marketing, Finance, Legal, Risk and Compliance/BSA/AML.
+Lead, develop, and mentor a team of ML managers and scientists.
+Drive decisions and work with multiple product and business teams to prioritize ML/AI initiatives in the areas of User Generated Content, Trip Planning, Computer Vision, NLP, and Generative AI. 
+Push adoption of emerging and relevant approaches to solve ML and AI  problems.
+Work with colleagues in Machine Learning, Analytics  and Engineering to drive best practices in development, testing, and production deployment at scale.
+Establish strong working relationships at all organizational levels across different functional teams.
+Identify and manage priorities within the context of overall Tripadvisor objectives.
+Your team will leverage data and advanced techniques to develop, implement and analyze predictive models that enable data-driven, strategic decision-making. This role requires expertise in a broad range of NLP, Computer Vision, Generative AI, Recommender systems and their application to business problems. A successful candidate will be organized, creative, and interested in creating practical scalable solutions to business problems using data and analytics. They will have the right mix of analytical, technical, and communication skills to thrive in a fast-paced environment.
+ 
 
-Experience And Abilities
+Skills & Experience:
 
-Bachelor’s degree required, advanced degree strongly preferred
-10+ years of experience leading an data or analytics team
-Evidence of working across analytics and engineering organizations to deliver on collaborative project goals
-Experience with analytics and data lifecycle management
-Understanding of analytics and engineering data ecosystems
-Ability to think critically in order to analyze problems and develop creative, practical and efficient solutions for a multinational company
-Strong communications skills that distill complex data and systems issues to both technical and non-technical audiences
-Strong people leadership and collaboration skills with enterprise-first mindset
-Leadership qualities that motivate collaboration with others, guiding the prioritization of initiatives
-Understanding of project management methodologies and the tradeoffs between them
-Payments industry experience a plus
-
-Key Words
-
-Data Science Management, Director Data Science, Director of Data Science, Director of Analytics, Manager Analytics, Manager Data Science
+MS or PhD in a quantitative field.
+Demonstrated history of leadership in managing high impact machine learning and engineering projects.
+5+ years of experience in managing and mentoring a team of ML scientists and managers.
+Knowledge of NLP, Computer Vision, practical experience with Deep Learning and Large Language Models.
+Proven track record in putting and managing critical Machine Learning services and production.
+Solid statistical knowledge and intuition, experience with A/B testing.
+Exceptional interpersonal and communication skills coupled with strong business acumen, along with the ability to influence peer organizations and executives.

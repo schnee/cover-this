@@ -1,16 +1,24 @@
+Brent Schneeman
+1903 Barton Parkway
+Austin, TX 78704
+
+Cohere Health
+[Company Address]
+[City, State, ZIP]
+
 Dear Hiring Manager,
 
-I am excited to apply for the Director of Data Science, Risk position at your multinational company. As an AI and machine learning executive with broad leadership experience across data scientists, software engineers, data analysts, and data engineers, I believe I have the skills and expertise necessary to lead your team of data scientists and analysts.
+I am writing to express my interest in the leadership position at Cohere Health. With my extensive experience in data science and leadership roles, I believe I am well-suited to consolidate and lead your machine learning, data science, data management, and business intelligence teams.
 
-In my previous role as Vice President of Data Science and Analytics at Overhaul, Inc, I was responsible for building a data organization with a focus on data engineering, data analytics, data science, and machine learning. I guided the team to deliver internal and external data-as-a-product features, provided direction for machine learning and data transformation pipelines, and achieved massive automation of data delivery to end customers. My efforts included transportation duration models, scoring of security events, and agent-based modeling of backhaul opportunities.
+As outlined in my resume, I have a proven track record of building and scaling durable teams across disciplines and companies. I have successfully combined my software engineering, machine learning, and leadership skills to drive rapid learning and hypothesis testing. My ability to foster a culture of curiosity and discovery has resulted in high-quality data insights being delivered efficiently.
 
-I have an advanced degree and experience working across analytics and engineering organizations to deliver on collaborative project goals. I possess strong communication and people leadership skills, with an enterprise-first mindset that prioritizes collaboration with others. I am adept at combining engineering and science to help companies both unlock the value of data and create new products as they pivot to modern algorithmic-based business models.
+Collaboration with cross-functional teams is a key strength of mine, as demonstrated by my experience in guiding stakeholders and building teams to deliver internal and external data-as-a-product features. I have also led efforts in machine learning and data transformation pipelines, resulting in operational efficiencies and the realization of automation in data delivery to end customers.
 
-I am active in local meetups and conferences, presenting on a variety of Data Science and Machine Learning topics, as well as being an Advisory Board Member for UT-Austin, McCombs School of Business Masters of Science Business Analytics program since 2015.
+In addition to my leadership experience, I have a strong background in data science and familiarity with iterative delivery methodologies. I have hands-on experience in artificial intelligence, machine learning projects, natural language processing (NLP), and computer vision (CV). My expertise in these areas, combined with my excellent communication skills, make me an ideal candidate for this role.
 
-I am confident that my experience and expertise make me an ideal candidate for this position. I look forward to the opportunity to discuss my qualifications further.
+Furthermore, I have several years of experience in software engineering, particularly in financial technologies, which roughly aligns with the requirements stated in the job specification. My experience in this industry has provided me with a deep understanding of the challenges and opportunities in healthcare data management.
 
-Thank you for considering my application.
+I am confident that my skills and experience make me a strong fit for the leadership position at Cohere Health. I am excited about the opportunity to contribute to your rapidly growing technology group and to help foster a culture of curiosity and discovery. Thank you for considering my application.
 
 Sincerely,
 

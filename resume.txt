@@ -1,0 +1,224 @@
+Brent Schneeman
+ENGiNEERiNG AND DATA SCiENCE
+1903 Barton Parkway, Austin TX 78704
+ 512.298.8880 |  schneeman@gmail.com |  schnee
+|  schneeman
+Overview
+AI and machine learning executive building teams, products, processes, and strategies to deploy algorithmic models
+in real‑time customer facing applications.
+Broad leadership experience across data scientists, software engineers, data analysts, and data engineers, having
+scaled‑from‑zero durable teams across disciplines and companies. Mixes software engineering, machine learning,
+and leadership skills to focus on rapid learning and hypothesis testing. Adept at combining engineering and science
+to help companies both unlock the value of data and create new products as they pivot to modern algorithmic‑
+based business models. Led and implemented data solutions to provide APIs and platforms which expose ML and
+AI to stakeholders and bring strong hands‑on experience in Artificial Intelligence, machine learning projects, natural
+language processing (NLP) and computer vision (CV).
+Active in local meetups and conferences, presenting on a variety of Data Science and Machine Learning topics, as
+well as being an Advisory Board Member for UT‑Austin, McCombs School of Business Masters of Science Business
+Analytics program since 2015.
+Expertise
+ORGANiZATiONAL
+Collaboration
+Miscellaneous
+Project
+Management
+Strategic thinking, Engineering and Science leadership, C‑Level adviser, Team design
+Operationalizing algorithms, Product orientation, Academic liaison, Curricula design
+Agile, Scrum, Kanban, Deterministic and Probabilistic
+Experience
+Overhaul, Inc
+ViCE PRESiDENT, DATA SCiENCE AND ANALYTiCS
+June 2020 ‑ August 2022
+• First hire with data‑specific focus, built Data organization with Data Engineering, Data Analytics, Data Science and Machine Learning focus.
+Guided by collaboration with stakeholders, built team to deliver internal and external data‑as‑a‑product features (e.g. reports, data assets).
+Provided direction for machine learning and data transformation pipelines, and for a robust data warehouse strategy. Achieved massive au‑
+tomation of data delivery to end customers (thereby realizing operational inefficiencies). ML efforts included transportation duration models,
+scoring of security events, and agent‑based modeling of backhaul opportunities
+• Six‑month international assignment in 2022 to build Data Science and Engineering team in Ireland. Collaborated with local recruiters, groups
+and universities to build recruitment pipeline and better understand European hiring processes and talent. Resulted in data science and ma‑
+chine learning hires in‑country
+• Technical architect, team lead, and main SQL contributor to Prefect‑ and DBT‑based data pipeline to populate Snowflake data warehouse.
+Ensured predictability, explainability, and observability to analytic data
+• Hired 8‑person international team of Business Intelligence Developers, Data Scientists, Data Engineers, and Machine Learning Engineers
+JUNE 2023
+BRENT SCHNEEMAN · CURRiCULUM ViTAE
+1Alegion, Inc
+SENiOR DiRECTOR, MACHiNE LEARNiNG
+March 2019 ‑ April 2020
+• Ideated, proposed, and implemented Active Learning workflow coupling machine learning with human annotators, which provides significant
+workflow efficiency. Delivered Sagemaker‑based solution in 2019 for image classification and object detection; delivered Kubeflow and DVC
+based solution in 2020, focusing on computer vision and natural language processing capabilities
+• Identified new product opportunities and developed new SKUs for Sales team
+• Led machine learning engineering and architecture team responsible for creating human‑in‑the‑loop machine learning capabilities into the
+core product
+• Assume roles of engineering leader, scrum master, product owner, and team member as appropriate; skilled at blending Machine Learning and
+Software Engineering process techniques to deliver ML‑based solutions
+• Implemented and directed Alegion’s intellectual property program by liaising between outside Counsel, internal inventors, and executive spon‑
+sors
+• Active in local meetups, spoke at Data Day Texas in January 2020
+• Delivered Computer Vision solution using AWS Sagemaker and Faster R‑CNN‑based for object classification and detection for customer‑specific
+video and image use cases. ML improved throughput by 30% over the fully‑manual process, and uses AWS Lambda functions and SQS mes‑
+saging
+• Led efforts for cross‑frame entity resolution of objects in videos. Then‑current heuristic approach determined ‘good enough‘ relative to ML/AI
+approaches. Team deployed to higher ROI efforts
+• Delivered Kubeflow, Kubernetes, Weights and Biases‑based metrics, and DVC‑based ML infrastructure, focusing on computer vision and natural
+language processing capabilities. This provides alternatives to the Sagemaker efforts, and gives greater model composition, reproducibility and
+data tracking. Target use cases for computer vision and NLP
+• Personally built, trained and deployed color‑classification CNN‑based model for retail fashion catalog. Leveraged aforementioned ML infras‑
+tructure. Model allows Alegion to by‑pass Crowd for certain color classes, greatly increasing margin
+• Architected and led delivery of Active Learning workflow coupling machine learning with human annotators, which provides significant workflow
+efficiency, chiefly for image annotation tasks. System deployed on Kubernetes‑based infrastructure hosted on Amazon Web Services (AWS)
+• Identified new product opportunities and developed new SKUs for efficient sales penetration, based on real‑world machine learning engineer‑
+ing processes and rapid hypothesis testing
+• Collaborate with VP Sales and CEO to provide high‑touch contract negotiations with key customers. Provide superlative support for Sales in
+front of these customers
+• Built and led machine learning engineering and architecture team responsible for creating human‑in‑the‑loop machine learning capabilities
+into the core product
+• Assumed roles of engineering leader, scrum master, product owner, and team member as appropriate; skilled at blending Machine Learning
+and Software Engineering process techniques to deliver ML‑based solutions
+• Implemented and directed Alegion’s intellectual property program by liaising between outside Counsel, internal inventors, and executive spon‑
+sors
+• Active in local meetups, spoke at Data Day Texas in January 2020
+• Reporting to Vice President, Engineering; dotted line to CTO
+UT McCombs School of Business
+INDUSTRY ADViSER
+2015 ‑
+• Advising McCombs on current industry needs for the Masters of Science Business Analytics curricula, including Database, Data engineering and
+ML modeling concepts. Ran three capstone projects. Hired three graduates and was influential in the hiring of four more.
+DOSH, LLC
+SENiOR DiRECTOR, DATA SCiENCE
+Jan 2018 ‑ Feb 2019
+• Built a 9‑person diverse team of Data Scientists, Data Analysts, and Data Engineers, all focused on evolving Dosh to a more data‑ and algorithmic‑
+oriented mobile‑app company. The Data and Analytics team was responsible for Data Science, Business Intelligence and Data Engineering (e.g.
+building the data warehouse and data lake)
+• Advised C‑level business partners to generate marketing campaigns, financial models, sales models, and investor‑deck content
+• Collaborated with technical stakeholders to create a data warehouse from Node.js‑based application data and to create ETL pipelines feeding
+location data to AWS S3 buckets for graph analysis. Eliminated redundant RDBMS systems in‑favor of AWS Redshift via ETL system build on top
+of Matillion
+• Sole contributor to XGBoost‑based models predicting offer redemption (transactions) and deeply analyzed fraudulent behaviors and referral
+networks using R and various network analytics packages
+• Led transformation of company dashboards from ‘vanity‑metrics’ to business‑focused KPIs
+• Directed Data Science efforts in predicting causal impact of multi‑vendor markets and price elasticity
+• Reported to Sr Vice President, Engineering
+JUNE 2023
+BRENT SCHNEEMAN · CURRiCULUM ViTAE
+2HomeAway, an Expedia Company
+SENiOR DiRECTOR, DATA SCiENCE
+Jul 2014 ‑ Dec 2017
+• Manage, Bootstrap, and Provide Strategic Vision for data science initiatives, such as Inventory Ranking and Optimization, Content Recommen‑
+dations, Marketplace Health, Image Quality, Chat bot AI Services, and other business critical efforts
+• Strengthened Algorithmic and Machine Learning muscle through project‑based leadership. Partnering with disparate product lines to answer
+questions quicker, and find new questions faster. Evangelized data‑informed decision making across company and with key executives, leading
+to the formation of the HomeAway Data Science Team. Built and directed 25 person team consisting of PhD Data Scientists and Machine
+Learning Engineers
+• Team projects included competitive intelligence, fraud detection, bot detection, unstructured and semi‑structured data mining, search result
+ranking, photo analysis, and price and occupancy predictions
+• Partnered with the UT McCombs School of Business, providing hiring‑manager guidance and data for the Masters of Science Business Analytics
+program. Hired 3 graduates from the program (see Volunteering section below)
+• Individual contributor on ML modeling for consumer facing chat bot. Duties included labeling data, building Deep Learning‑based intent clas‑
+sifier (in Keras), collaborating with data and software engineering to determine application architecture
+• Created experience‑based recommendation service that found activities in one location that are similar to activities in another. A word2vec‑
+based latent embedding space was used to find the similar activities
+• Created photo‑similarity service that allowed clients to explore images of properties that are similar to another properties photos. An ‘im‑
+age2vec’ vector space was built from images and the service navigated that space
+• Created Machine Learning pipeline in collaboration with infrastructure team within HomeAway to aid model production and deployment
+• Created Data Science Internship Program for HomeAway University
+• Using single compute nodes and later Spark, sole contributor to models that compared geographic representation of HomeAway properties
+with the representation from a competitor. Initially, Natural Language Processing techniques such as TF‑IDF vectors were built from property
+descriptions and distances measured between those vectors determined duplicate or unique properties, but LDA distributions were leveraged
+as the project matured. A similar transition from single compute resources to Spark occurred as the need for greater parallelization became
+apparent
+• Bayesian and frequentist multi‑variate test analysis in R
+• Introduced natural language processing, machine learning, and defensible statistical inference
+• Multiple team and individual presentations on ML efforts and affects to C‑level audiences
+• Created and led 100+ volunteer “science club”, all trying to swipe right for science
+• Acted as an external ambassador through public speaking at various events. Built internal credibility around a scientific method to AB Testing
+and algorithmic approached to business problems
+• Collaborated with Data and Software Engineering organizations to prototype and select big‑data solutions based on Hadoop (HDFS, Hive) and
+Spark
+• Leadership role in Introduction to Data Science courses, Mentorship Program, HADES
+• Reported to CIO
+HomeAway, an Expedia Company
+DiRECTOR, SOFTWARE ENGiNEERiNG
+Jun 2010 ‑ Jul 2014
+• Directed 25‑person team responsible for the Orders and Payments Platform services. The team consisted of Engineers and Architects of all
+levels and areas in “the stack” (UX/UI, web‑tier, service layer, ...)
+• Worked closely with CFO, CTO, and CPO as the services handled much of HomeAway’s revenue
+• Led development and enhancement of PCI Compliant “payment island”. Architected and implemented payment gateway router which sends
+transactions from clients to any one of several payment gateways (e.g. Cybersource, Payflow Pro, Yapstone, and Trident)
+• Established HomeAway Inventions Program, which is responsible for identifying, cataloging and protecting intellectual property. Sole‑ or Co‑
+Inventor on several pre‑patent inventions
+• Technical member of global payment processor negotiation team, responsible for technical evaluation and diligence for HomeAway’s successful
+selection of a global payment processor
+• Team Lead delivering Unified Payments Services, PCI and SOX compliance, and migrating vertical payment flows to common service‑based API
+• Two patents on data storage were filed and approved (see details in Patents section)
+PayPal, Inc
+PRiNCiPAL SOFTWARE ENGiNEER
+Mar 2007 ‑ Jun 2010
+• Implemented two‑factor authentication system (via hardware token) for PayPal and eBay
+• Formed small team to introduce Agile Software Development methodologies to PayPal, received executive support and developed training
+material
+• (Certified) Scrum master for next‑gen (now current gen) view‑layer technology
+PayPal, Inc
+ENGiNEERiNG MANAGER, SOFTWARE DEVELOPMENT
+Mar 2008 ‑ Jul 2009
+• Led development of the content management system for PayPal’s marketing department
+Visa, Inc
+SOFTWARE ENGiNEER
+Nov 2000 ‑ Mar 2007
+• Managed development team delivering Corporate Card Expense Reporting service for large, multi‑national financial institutions
+• Implemented central directory server for Verified by Visa
+• Developed reference standard Directory Server for Verified by Visa(tm) implementation of the Three D Secure payment protocol
+• Led testing and qualification efforts for Verified by Visa(tm) certifications
+Education
+JUNE 2023
+BRENT SCHNEEMAN · CURRiCULUM ViTAE
+3The Santa Fe Institute
+COMPLEX SYSTEMS SUMMER SCHOOL
+2015
+University of Southern California
+BS ‑ ELECTRiCAL ENGiNEERiNG
+1990
+Carroll College
+BA ‑ MATHEMATiCS
+1990
+Volunteering
+City of Austin Business & International Affairs Focus Group
+INDUSTRY CONSULTANT
+Jan 2018 ‑
+• Focusing on Austin TX’s outreach to both business and international affairs
+Skillpoint Alliance
+CHAiRMAN OF THE BOARD, BOARD MEMBER
+Feb 2012 ‑ Sep 2016
+• Skillpoint Alliance builds partnerships between industry, education, and the community to provide a more qualified workforce for Central Texas
+Certifications
+Nov 2017 Neural Networks and Deep Learning (Python / Keras)Coursera
+Sept 2014 R ProgrammingCoursera
+Sept 2014 The Data Scientists ToolboxCoursera
+June 2008 Certified ScrummasterRally, Inc.
+Technical Expertise
+Deep Learning
+Engineering
+Languages
+Leadership and Strategy
+Machine Learning
+Supervised Learning
+Unsupervised Learning
+CNN, RNN, LSTM, Active Learning, Transfer Learning
+REST, Object Oriented Design, Test Driven Development
+Python, R, SQL, Java
+Executive collaboration, Organization management, Culture change
+Tensorflow, Keras, Pandas, Tidyverse
+Regression, Random Forest, Gradient Boosted Trees
+K‑means and hierarchical clustering, PCA, tSNE
+Patents
+USPTO
+US9928498B2 SYSTEM, APPARATUS AND METHOD FOR SEGREGATiNG DATA iN TRANSACTiONS ViA DEDiCATED iNTERFACE
+ELEMENTS FOR iSOLATED LOGiC AND REPOSiTORiES
+2018‑03‑27
+USPTO
+US10339487B2 SYSTEMS AND METHODS TO RECONCiLE FREE‑TEXT WiTH STRUCTURED DATA
+JUNE 2023
+BRENT SCHNEEMAN · CURRiCULUM ViTAE
+2019‑07‑02
+4

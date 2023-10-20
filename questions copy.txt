@@ -1,0 +1,10 @@
+1. Can you tell me about your experience in developing data-driven solutions to support pricing decisions?
+2. How have you used statistical modeling and data analysis in your previous roles?
+3. Can you provide an example of a pricing strategy that you have developed and implemented?
+4. How have you communicated data analysis and insights to stakeholders in the past?
+5. Have you worked with any statistical software such as R or Python? Can you give me an example of a project where you used these tools?
+6. Have you used data visualization tools like Tableau or PowerBI? How have you used these tools to present pricing recommendations or insights?
+7. Can you discuss your experience with databases and data management systems?
+8. Have you supported a system build for predictive analytics? If so, can you provide an example of a project you worked on?
+9. Have you worked in the supply chain or distribution industry? Can you talk about your experience with pricing and costing in this context?
+10. Have you worked with enterprise-scale databases? Can you discuss your experience in managing and analyzing large datasets?

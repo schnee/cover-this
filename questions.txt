@@ -1,0 +1,15 @@
+{
+  "assessment": "The candidate appears to have a strong background in machine learning and data science, with extensive experience in leadership roles. They have successfully built and managed teams, implemented machine learning solutions, and have a track record of delivering high-impact projects. They also have expertise in NLP, computer vision, and deep learning. Overall, the candidate seems well-suited for the role of Director of Machine Learning at Tripadvisor.",
+  "questions": [
+    "Can you provide an example of a machine learning project that you have led from start to finish?",
+    "How have you managed and mentored a team of ML scientists and managers in the past?",
+    "Tell me about your experience with NLP and computer vision.",
+    "Have you worked with large language models? If so, can you describe your experience?",
+    "How have you put machine learning services into production in your previous roles?",
+    "Can you explain your experience with A/B testing and how you have used it in your work?",
+    "Tell me about a time when you had to influence peer organizations and executives to implement a machine learning solution.",
+    "How do you stay up-to-date with the latest advancements in machine learning and data science?",
+    "Can you provide an example of a challenging machine learning problem you have solved in your career?",
+    "How do you approach balancing business needs with technical considerations in machine learning projects?"
+  ]
+}
