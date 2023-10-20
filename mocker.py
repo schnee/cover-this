@@ -2,13 +2,20 @@ from dotenv import dotenv_values
 from langchain.callbacks import get_openai_callback
 from langchain.chains import LLMChain
 from langchain.chains.summarize import load_summarize_chain
+from langchain.output_parsers import PydanticOutputParser
 from langchain.chat_models import ChatOpenAI
 from langchain.docstore.document import Document
 from langchain.document_loaders import UnstructuredFileLoader
 from langchain.prompts import PromptTemplate
 from langchain.text_splitter import CharacterTextSplitter
 from pdf_utils import extract_text_from_pdf
+from typing import List
+from langchain.pydantic_v1 import BaseModel, Field
+import pickle
 
+class QuestionList(BaseModel):
+    assessment: str = Field(description="Suitability assessment")
+    questions: List[str] = Field(description="List of questions to ask")
 
 # This will (likely) generate mock interview questions based on the jobspec
 # and the resume. The resume is a PDF and the spec is
@@ -36,10 +43,12 @@ def main():
     # two llms, one for the summary (that specs max_tokens) and one
     # for the generation. I found that this arrangement works best
     # to not overrun the buffer size
+    openai_api_key = config["OPENAI_API_KEY"]
+
     llm_summarize = ChatOpenAI(
         model_name = "gpt-3.5-turbo",
         temperature=0.05,
-        openai_api_key=config["OPENAI_API_KEY"],
+        openai_api_key=openai_api_key,
         max_tokens=1000
     )
 
@@ -48,8 +57,6 @@ def main():
         temperature=0.05,
         openai_api_key=config["OPENAI_API_KEY"],
     )
-
-
 
     #loader = OnlinePDFLoader("https://tworavens.ai/schneeman-brent-resume.pdf")
     the_resume = extract_text_from_pdf("./schneeman-brent-resume.pdf" )
@@ -78,39 +85,52 @@ def main():
     print(summarized_spec)
 
     questions = generate_questions(llm_generate, the_resume, summarized_spec)
-    print(questions)
+
+    questions_as_json = questions.json(indent=2)
 
     # dump it out into a file
     with open('questions.txt', 'w') as f:
-        f.writelines(questions)
+        f.writelines(questions_as_json)
+
+    # dump as pickle
+    with open('questions.pkl', 'wb') as f:
+        pickle.dump(questions, f)
 
 def generate_questions(llm_generate, the_resume, summarized_spec):
+
+    output_parser = PydanticOutputParser(pydantic_object=QuestionList)
+
+    format_instructions = output_parser.get_format_instructions()
+
     prompt_template = """You are the hiring manager for the jobspec below. You have
     a technical machine learning background and are interviewing the candidate represented
-    by the resume. Based on the resume and jobspec content, assess the candidate's qualifications and 
-    generate mock interview questions focusing on their relevant experience and skills for the role.
-    Make sure to ask open-ended questions and question specific experiences in their resume. 
+    by the resume. Based on the resume and jobspec content, assess the candidate's
+    suitability for the role and generate ten interview questions focusing on their relevant
+    experience and skills for the role. Make sure to ask open-ended questions and 
+    question specific experiences in their resume. Ensure that the assessment is written provided
+    as if you are speaking directly to the candidate.\n
     
-        Resume: {resume}
+        Resume: {resume}\n
 
-        Jobspec: {jobspec}
+        Jobspec: {jobspec}\n
 
-        Here are 10 sample questions provided as a numbered list:"""
+    {format_instructions}
+    """
 
     PROMPT = PromptTemplate(
-        template=prompt_template, input_variables=["jobspec", "resume"]
+        template=prompt_template, 
+        input_variables=["jobspec", "resume"],
+        partial_variables={"format_instructions": format_instructions}
     )
 
-    # generate the cover letter. NOTE: you will need to proofread the cover because
-    # it will asssert qualifications not present in the resume (e.g. I apparently 
-    # have multiple PhDs...).
-
-    chain = LLMChain(llm=llm_generate, prompt=PROMPT)
+    chain = LLMChain(llm=llm_generate, prompt=PROMPT, output_parser=output_parser)
     resume_content = the_resume#[0].page_content
-    print(resume_content)
-    mock_interview = chain.apply([{"jobspec": summarized_spec, "resume": resume_content}])
-    questions = mock_interview[0]["text"]
-    return questions
+
+    # after this, mock_interview is a QuestionList object. That's pretty neat.
+
+    mock_interview = chain.run({"jobspec": summarized_spec, "resume": resume_content})
+    
+    return mock_interview
 
 
 if __name__ == "__main__":
