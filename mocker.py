@@ -9,13 +9,8 @@ from langchain.document_loaders import UnstructuredFileLoader
 from langchain.prompts import PromptTemplate
 from langchain.text_splitter import CharacterTextSplitter
 from pdf_utils import extract_text_from_pdf
-from typing import List
-from langchain.pydantic_v1 import BaseModel, Field
 import pickle
-
-class QuestionList(BaseModel):
-    assessment: str = Field(description="Suitability assessment")
-    questions: List[str] = Field(description="List of questions to ask")
+from models import QuestionList
 
 # This will (likely) generate mock interview questions based on the jobspec
 # and the resume. The resume is a PDF and the spec is
@@ -105,7 +100,7 @@ def generate_questions(llm_generate, the_resume, summarized_spec):
     prompt_template = """You are the hiring manager for the jobspec below. You have
     a technical machine learning background and are interviewing the candidate represented
     by the resume. Based on the resume and jobspec content, assess the candidate's
-    suitability for the role and generate ten interview questions focusing on their relevant
+    suitability for the role and generate five interview questions focusing on their relevant
     experience and skills for the role. Make sure to ask open-ended questions and 
     question specific experiences in their resume. Ensure that the assessment is written provided
     as if you are speaking directly to the candidate.\n

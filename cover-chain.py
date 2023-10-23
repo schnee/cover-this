@@ -1,24 +1,18 @@
-from dotenv import dotenv_values, load_dotenv
 from langchain.callbacks import get_openai_callback
 from langchain.chains import LLMChain
 from langchain.chains.summarize import load_summarize_chain
-from langchain.chat_models import ChatOpenAI
 from langchain.docstore.document import Document
-from langchain.document_loaders import (OnlinePDFLoader, PyPDFLoader,
+from langchain.document_loaders import (PyPDFLoader,
                                         UnstructuredFileLoader)
 from langchain.prompts import PromptTemplate
 from langchain.text_splitter import CharacterTextSplitter
+
+from llmfactory import LLMFactory
 
 # This will (likely) generate a cover letter based on a Resume
 # and a job specification. The resume is a PDF and the spec is
 # in text format. You will need to change the loaders appropriately
 # to get them from their locations.
-
-# externalize the configuration into a ".env" file. In particular, 
-# OPENAI_API_KEY={key value}
-# should be set in the .env file
-config = dotenv_values(".env")
-
 
 
 def count_tokens(chain, query):
@@ -29,28 +23,15 @@ def count_tokens(chain, query):
     return result
 
 def main():
-    # gpt-3.5-turbo is rate-limited. Apparently, better than 'text-davinci-003'
-    # but since I am not (yet) paying for OPENAI API access, I get a lot of
-    # rate-limited exceptions. However, since I am using langchain, and 
-    # chat chains, I can't use davinci here (well, not easily)
 
     # two llms, one for the summary (that specs max_tokens) and one
     # for the generation. I found that this arrangement works best
     # to not overrun the buffer size
-    llm_summarize = ChatOpenAI(
-        model_name = "gpt-3.5-turbo",
-        temperature=0.05,
-        openai_api_key=config["OPENAI_API_KEY"],
-        max_tokens=1000
-    )
 
-    llm_generate = ChatOpenAI(
-        model_name = "gpt-3.5-turbo",
-        temperature=0.05,
-        openai_api_key=config["OPENAI_API_KEY"],
-    )
+    factory = LLMFactory()
 
-
+    llm_summarize = factory.create_summarizer()
+    llm_generate = factory.create_generator()
 
     #loader = OnlinePDFLoader("https://tworavens.ai/schneeman-brent-resume.pdf")
     loader = PyPDFLoader("./schneeman-brent-resume.pdf")
@@ -89,7 +70,7 @@ def main():
 
 def generate_cover(llm_generate, the_resume, summarized_spec):
     prompt_template = """Use the jobspec below to write a cover letter based on
-    the resume, and do not assert experience that is not in the resume. 
+    the resume. Do not claim experience or education that is not in the resume. 
     Be professional, and emphasize leadership experience mentioned in the resume.
         Jobspec: {jobspec}
         Resume: {resume}
