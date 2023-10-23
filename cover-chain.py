@@ -8,6 +8,7 @@ from langchain.prompts import PromptTemplate
 from langchain.text_splitter import CharacterTextSplitter
 
 from llmfactory import LLMFactory
+from pdf_utils import extract_text_from_pdf
 
 # This will (likely) generate a cover letter based on a Resume
 # and a job specification. The resume is a PDF and the spec is
@@ -22,7 +23,15 @@ def count_tokens(chain, query):
 
     return result
 
-def main():
+def generate_cover_letter(resume, job_spec):
+
+    # Process resume
+    resume_doc = resume #Document(page_content=resume)
+
+    # Process job spec
+    splitter = CharacterTextSplitter(chunk_size=1500)
+    spec_chunks = splitter.split_text(job_spec[0].page_content)
+    spec_docs = [Document(page_content=chunk) for chunk in spec_chunks]
 
     # two llms, one for the summary (that specs max_tokens) and one
     # for the generation. I found that this arrangement works best
@@ -33,35 +42,60 @@ def main():
     llm_summarize = factory.create_summarizer()
     llm_generate = factory.create_generator()
 
-    #loader = OnlinePDFLoader("https://tworavens.ai/schneeman-brent-resume.pdf")
-    loader = PyPDFLoader("./schneeman-brent-resume.pdf")
+    # Summarize spec
+    summarize_chain = load_summarize_chain(llm_summarize, "refine")
+    summarized_spec = summarize_chain.run(spec_docs)
 
-    the_resume = loader.load()
+    # Generate cover letter
+    cover_letter = generate_cover(llm_generate, resume_doc, summarized_spec)
+
+    return cover_letter
+
+def main():
+
+
+    #loader = OnlinePDFLoader("https://tworavens.ai/schneeman-brent-resume.pdf")
+    #loader = PyPDFLoader("./schneeman-brent-resume.pdf")
+
+    the_resume = extract_text_from_pdf("./schneeman-brent-resume.pdf" )
 
     text_loader = UnstructuredFileLoader("./job-spec.txt")
 
     the_spec = text_loader.load()
 
-    # splitting the spec into chunks to summarize.
-    # using a 1000 token chunk size (with the default overlap)
-    # of 200 tokens) to attempt to extract specifics while 
-    # maintaining overall context. This is 100% a guess
-    text_splitter = CharacterTextSplitter(chunk_size=1500) 
-    the_spec_chunks = text_splitter.split_text(the_spec[0].page_content)
+    # # splitting the spec into chunks to summarize.
+    # # using a 1000 token chunk size (with the default overlap)
+    # # of 200 tokens) to attempt to extract specifics while 
+    # # maintaining overall context. This is 100% a guess
+    # text_splitter = CharacterTextSplitter(chunk_size=1500) 
+    # the_spec_chunks = text_splitter.split_text(the_spec[0].page_content)
 
-    docs = [Document(page_content=t) for t in the_spec_chunks]
+    # docs = [Document(page_content=t) for t in the_spec_chunks]
 
-    # Summarize the spec. This is mostly to reduce the token size of the 
-    # spec to something that can fit into the "generate the cover letter"
-    # prompt. If the spec is short enough, it could be used directly.
 
-    # this can be "map_reduce", "refine", or "stuff" - not sure which is 'best'
-    chain_summarize = load_summarize_chain(llm_summarize, "refine")
+    # # two llms, one for the summary (that specs max_tokens) and one
+    # # for the generation. I found that this arrangement works best
+    # # to not overrun the buffer size
 
-    summarized_spec = chain_summarize.run(docs)
-    print(summarized_spec)
+    # factory = LLMFactory()
 
-    cover_txt = generate_cover(llm_generate, the_resume, summarized_spec)
+    # llm_summarize = factory.create_summarizer()
+    # llm_generate = factory.create_generator()
+
+    # # Summarize the spec. This is mostly to reduce the token size of the 
+    # # spec to something that can fit into the "generate the cover letter"
+    # # prompt. If the spec is short enough, it could be used directly.
+
+    # # this can be "map_reduce", "refine", or "stuff" - not sure which is 'best'
+    # chain_summarize = load_summarize_chain(llm_summarize, "refine")
+
+    # summarized_spec = chain_summarize.run(docs)
+    # print(summarized_spec)
+
+    # cover_txt = generate_cover(llm_generate, the_resume, summarized_spec)
+
+    cover_txt = generate_cover_letter(the_resume, the_spec)
+
     print(cover_txt)
 
     # dump it out into a file
@@ -85,7 +119,7 @@ def generate_cover(llm_generate, the_resume, summarized_spec):
     # have multiple PhDs...).
 
     chain = LLMChain(llm=llm_generate, prompt=PROMPT)
-    cover_letter = chain.apply([{"jobspec": summarized_spec, "resume": the_resume[0].page_content}])
+    cover_letter = chain.apply([{"jobspec": summarized_spec, "resume": the_resume}])
     cover_txt = cover_letter[0]["text"]
     return cover_txt
 
