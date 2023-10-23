@@ -29,7 +29,7 @@ def generate_cover_letter(resume, job_spec):
 
     # Process job spec
     splitter = CharacterTextSplitter(chunk_size=1500)
-    spec_chunks = splitter.split_text(job_spec[0].page_content)
+    spec_chunks = splitter.split_text(job_spec)
     spec_docs = [Document(page_content=chunk) for chunk in spec_chunks]
 
     # two llms, one for the summary (that specs max_tokens) and one
@@ -58,7 +58,7 @@ def main():
 
     the_spec = text_loader.load()
 
-    cover_txt = generate_cover_letter(the_resume, the_spec)
+    cover_txt = generate_cover_letter(the_resume, the_spec[0].page_content)
 
     print(cover_txt)
 
