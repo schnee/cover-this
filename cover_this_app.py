@@ -2,6 +2,8 @@ import streamlit as st
 from cover_chain import generate_cover_letter
 from io import StringIO
 
+# this is the main app
+
 st.title("Cover Letter Generator")
 
 st.markdown("This app will generate a cover letter based on a PDF resume and a job spec. Simply upload the PDF, paste in the jobspec and press the 'Generate' button.")
