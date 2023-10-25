@@ -24,7 +24,7 @@ if st.button("Generate Cover Letter"):
         # To read file as string:
         #job_spec_text = stringio.read()
         cover_letter = generate_cover_letter(resume, job_spec_text)
-        st.text(cover_letter)
+        st.markdown(cover_letter)
     else:
         st.error("Please upload both a resume and job spec")
 
