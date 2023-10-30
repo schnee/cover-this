@@ -16,7 +16,9 @@ resume = st.file_uploader("Choose a resume", type=["pdf"])
 st.header("Enter Job Spec")  
 #job_spec = st.file_uploader("Choose a job spec", type=["txt"])
 
-job_spec_text = st.text_area("Cut-and-paste your job spec here")
+job_spec_text = st.text_area("Cut-and-paste your job spec here", 
+                             value="Company Name: [fill in]\n[job spec goes here]",
+                             height=100)
 
 if st.button("Generate Cover Letter"):
     if resume and job_spec_text:

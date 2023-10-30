@@ -27,7 +27,7 @@ class LLMFactory:
                 model_name="gpt-3.5-turbo",
                 temperature=0.05,
                 openai_api_key=self.api_key,
-                max_tokens=1000
+                max_tokens=600
             )
         elif(self.llm_provider == "GOOGLE"):
             return ChatGooglePalm(google_api_key=self.api_key,

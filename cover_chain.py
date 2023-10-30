@@ -5,6 +5,7 @@ from langchain.docstore.document import Document
 from langchain.document_loaders import (UnstructuredFileLoader)
 from langchain.prompts import PromptTemplate
 from langchain.text_splitter import CharacterTextSplitter
+import tiktoken
 
 from llmfactory import LLMFactory
 from pdf_utils import extract_text_from_pdf
@@ -15,22 +16,13 @@ from pdf_utils import extract_text_from_pdf
 # to get them from their locations.
 
 
-def count_tokens(chain, query):
-    with get_openai_callback() as cb:
-        result = chain.run(query)
-        print(f'Spent a total of {cb.total_tokens} tokens')
-
-    return result
+def num_tokens_from_string(string: str, encoding_name: str) -> int:
+    """Returns the number of tokens in a text string."""
+    encoding = tiktoken.get_encoding(encoding_name)
+    num_tokens = len(encoding.encode(string))
+    return num_tokens
 
 def generate_cover_letter(resume, job_spec):
-
-    # Process resume
-    resume_doc = resume #Document(page_content=resume)
-
-    # Process job spec
-    splitter = CharacterTextSplitter(chunk_size=1500)
-    spec_chunks = splitter.split_text(job_spec)
-    spec_docs = [Document(page_content=chunk) for chunk in spec_chunks]
 
     # two llms, one for the summary (that specs max_tokens) and one
     # for the generation. I found that this arrangement works best
@@ -41,12 +33,36 @@ def generate_cover_letter(resume, job_spec):
     llm_summarize = factory.create_summarizer()
     llm_generate = factory.create_generator()
 
-    # Summarize spec
-    summarize_chain = load_summarize_chain(llm_summarize, "refine")
-    summarized_spec = summarize_chain.run(spec_docs)
+    spec_tokens = num_tokens_from_string(job_spec, "cl100k_base")
+    print("Jobspec tokens: ", spec_tokens)
+    resume_tokens = num_tokens_from_string(resume, "cl100k_base")
+    print("Resume tokens: ", resume_tokens)
+
+    if(spec_tokens > 450):
+        # Process job spec
+        splitter = CharacterTextSplitter(chunk_size=200)
+        spec_chunks = splitter.split_text(job_spec)
+        spec_docs = [Document(page_content=chunk) for chunk in spec_chunks]
+
+        # Summarize spec
+        summarize_chain = load_summarize_chain(llm_summarize, "refine")
+        job_spec = summarize_chain.run(spec_docs)
+        print("Summarized spec tokens: ", num_tokens_from_string(job_spec, "cl100k_base"))
+
+    if(resume_tokens > 3000):
+        # Process resume
+        splitter = CharacterTextSplitter(chunk_size=200)
+        resume_chunks = splitter.split_text(resume)
+        resume_docs = [Document(page_content=chunk) for chunk in resume_chunks]
+
+        # Summarize resume
+        summarize_chain = load_summarize_chain(llm_summarize, "refine")
+        resume = summarize_chain.run(resume_docs)
+        print("Summarized resume tokens: ", num_tokens_from_string(resume, "cl100k_base"))
 
     # Generate cover letter
-    cover_letter = generate_cover(llm_generate, resume_doc, summarized_spec)
+    cover_letter = generate_cover(llm_generate, resume, job_spec)
+    print("Cover letter tokens: ", num_tokens_from_string(cover_letter, "cl100k_base"))
 
     return cover_letter
 
