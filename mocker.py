@@ -8,6 +8,8 @@ from langchain.docstore.document import Document
 from langchain.document_loaders import UnstructuredFileLoader
 from langchain.prompts import PromptTemplate
 from langchain.text_splitter import CharacterTextSplitter
+from cover_chain import process_resume, process_spec
+from llmfactory import LLMFactory
 from pdf_utils import extract_text_from_pdf
 import pickle
 from models import QuestionList
@@ -35,51 +37,15 @@ def main():
     # rate-limited exceptions. However, since I am using langchain, and 
     # chat chains, I can't use davinci here (well, not easily)
 
-    # two llms, one for the summary (that specs max_tokens) and one
-    # for the generation. I found that this arrangement works best
-    # to not overrun the buffer size
-    openai_api_key = config["OPENAI_API_KEY"]
-
-    llm_summarize = ChatOpenAI(
-        model_name = "gpt-3.5-turbo",
-        temperature=0.05,
-        openai_api_key=openai_api_key,
-        max_tokens=1000
-    )
-
-    llm_generate = ChatOpenAI(
-        model_name = "gpt-3.5-turbo",
-        temperature=0.05,
-        openai_api_key=config["OPENAI_API_KEY"],
-    )
-
     #loader = OnlinePDFLoader("https://tworavens.ai/schneeman-brent-resume.pdf")
     the_resume = extract_text_from_pdf("./schneeman-brent-resume.pdf" )
 
     text_loader = UnstructuredFileLoader("./job-spec.txt")
 
-    the_spec = text_loader.load()
+    job_spec = text_loader.load()
+    the_job_spec = job_spec[0].page_content
 
-    # splitting the spec into chunks to summarize.
-    # using a 1500 token chunk size (with the default overlap)
-    # of 200 tokens) to attempt to extract specifics while 
-    # maintaining overall context. This is 100% a guess
-    text_splitter = CharacterTextSplitter(chunk_size=1500) 
-    the_spec_chunks = text_splitter.split_text(the_spec[0].page_content)
-
-    docs = [Document(page_content=t) for t in the_spec_chunks]
-
-    # Summarize the spec. This is mostly to reduce the token size of the 
-    # spec to something that can fit into the "generate the cover letter"
-    # prompt. If the spec is short enough, it could be used directly.
-
-    # this can be "map_reduce", "refine", or "stuff" - not sure which is 'best'
-    chain_summarize = load_summarize_chain(llm_summarize, "refine")
-
-    summarized_spec = chain_summarize.run(docs)
-    print(summarized_spec)
-
-    questions = generate_questions(llm_generate, the_resume, summarized_spec)
+    questions = assess_and_questions(the_resume, the_job_spec)
 
     questions_as_json = questions.json(indent=2)
 
@@ -91,15 +57,28 @@ def main():
     with open('questions.pkl', 'wb') as f:
         pickle.dump(questions, f)
 
+def assess_and_questions(the_resume, the_job_spec):
+    factory = LLMFactory()
+
+    llm_summarize = factory.create_summarizer()
+    llm_generate = factory.create_generator()
+
+    the_job_spec = process_spec(the_job_spec, llm_summarize)
+
+    the_resume = process_resume(the_resume, llm_summarize)
+
+    questions = generate_questions(llm_generate, the_resume, the_job_spec)
+    return questions
+
 def generate_questions(llm_generate, the_resume, summarized_spec):
 
     output_parser = PydanticOutputParser(pydantic_object=QuestionList)
 
     format_instructions = output_parser.get_format_instructions()
 
-    prompt_template = """You are the hiring manager for the jobspec below. You have
-    a technical machine learning background and are interviewing the candidate represented
-    by the resume. Based on the resume and jobspec content, assess the candidate's
+    prompt_template = """You are the hiring manager for the jobspec below and are interviewing 
+    the candidate represented by the resume. You are a subject matter expert on the role.
+    Based on the resume and jobspec content, assess the candidate's
     suitability for the role and generate five interview questions focusing on their relevant
     experience and skills for the role. Make sure to ask open-ended questions and 
     question specific experiences in their resume. Ensure that the assessment is written provided

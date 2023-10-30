@@ -1,6 +1,10 @@
 import streamlit as st
 from cover_chain import generate_cover_letter
 from io import StringIO
+from mocker import assess_and_questions
+
+from pdf_utils import extract_text_from_pdf
+from models import QuestionList
 
 # this is the main app
 
@@ -22,15 +26,20 @@ job_spec_text = st.text_area("Cut-and-paste your job spec here",
 
 if st.button("Generate Cover Letter"):
     if resume and job_spec_text:
-        # To convert to a string based IO:
-        #stringio = StringIO(job_spec.getvalue().decode("utf-8"))
 
-        # To read file as string:
-        #job_spec_text = stringio.read()
-        cover_letter = generate_cover_letter(resume, job_spec_text)
+        resume_txt = extract_text_from_pdf(resume)
+        cover_letter = generate_cover_letter(resume_txt, job_spec_text)
         st.markdown(cover_letter)
     else:
         st.error("Please upload both a resume and job spec")
 
 
-
+if st.button("Assessment and Questions"):
+    if resume and job_spec_text:
+        the_resume = extract_text_from_pdf(resume)
+        a_and_q = assess_and_questions(the_resume, job_spec_text)
+        st.markdown(a_and_q.assessment)
+        for question in a_and_q.questions:
+            st.markdown(question)
+    else:
+        st.error("Please upload both a resume and job spec")
