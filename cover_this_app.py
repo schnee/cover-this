@@ -24,7 +24,9 @@ job_spec_text = st.text_area("Cut-and-paste your job spec here",
                              value="Company Name: [fill in]\n[job spec goes here]",
                              height=100)
 
-if st.button("Cover Letter"):
+col1, col2 = st.columns(2)
+
+if col1.button("Cover Letter"):
     if resume and job_spec_text:
 
         resume_txt = extract_text_from_pdf(resume)
@@ -34,7 +36,7 @@ if st.button("Cover Letter"):
         st.error("Please upload both a resume and job spec")
 
 
-if st.button("Assessment and Questions"):
+if col2.button("Assessment and Questions"):
     if resume and job_spec_text:
         the_resume = extract_text_from_pdf(resume)
         a_and_q = assess_and_questions(the_resume, job_spec_text)

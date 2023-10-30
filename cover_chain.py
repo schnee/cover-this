@@ -47,7 +47,7 @@ def process_resume(resume, llm_summarize):
     resume_tokens = num_tokens_from_string(resume, "cl100k_base")
     print("Resume tokens: ", resume_tokens)
 
-    if(resume_tokens > 3000):
+    if(resume_tokens > 3300):
         # Process resume
         splitter = CharacterTextSplitter(chunk_size=200)
         resume_chunks = splitter.split_text(resume)
