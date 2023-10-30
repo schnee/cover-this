@@ -44,7 +44,6 @@ def generate_cover_letter(resume, job_spec):
     return cover_letter
 
 def process_resume(resume, llm_summarize):
-    print(resume)
     resume_tokens = num_tokens_from_string(resume, "cl100k_base")
     print("Resume tokens: ", resume_tokens)
 

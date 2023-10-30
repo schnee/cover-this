@@ -24,7 +24,7 @@ job_spec_text = st.text_area("Cut-and-paste your job spec here",
                              value="Company Name: [fill in]\n[job spec goes here]",
                              height=100)
 
-if st.button("Generate Cover Letter"):
+if st.button("Cover Letter"):
     if resume and job_spec_text:
 
         resume_txt = extract_text_from_pdf(resume)
@@ -39,6 +39,7 @@ if st.button("Assessment and Questions"):
         the_resume = extract_text_from_pdf(resume)
         a_and_q = assess_and_questions(the_resume, job_spec_text)
         st.markdown(a_and_q.assessment)
+        st.markdown("Here are some questions for the candidate:")
         for question in a_and_q.questions:
             st.markdown(question)
     else:
