@@ -11,12 +11,19 @@ from models import QuestionList
 
 st.title("Cover Letter Generator")
 
-col1, col2 = st.columns(2)
 
-st.markdown("This app will generate a cover letter based on a PDF resume and a job spec. Simply upload the PDF, paste in the jobspec and press the 'Generate' button.")
-col1.link_button(":orange[Buy me a coffee]", "https://www.buymeacoffee.com/mahkr",)
+
+st.markdown("""This app will either generate a cover letter, or an assessment and some sample
+            questions (for, e.g., a mock interview). Simply upload a resume, cut-and-paste a
+            job specification and press the appropriate button. This site collects session-level
+            information to improve the quality of the service provided.""")
+
+st.markdown("""If you like this app, please consider buying me a coffee. :coffee: :coffee: :coffee:
+            """)
+col1, col2 = st.columns(2)
+col1.link_button(":orange[Buy me a coffee :coffee:]", "https://www.buymeacoffee.com/mahkr",)
 #st.markdown("[![Buy me a coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://www.buymeacoffee.com/mahkr)")
-col2.link_button("Email me with feedback", "mailto:schneeman@gmail.com")
+col2.link_button("Email me with feedback :email:", "mailto:schneeman@gmail.com?subject=Mahkr Feedback")
 st.header("Upload Resume")
 resume = st.file_uploader("Choose a resume", type=["pdf"])
 
