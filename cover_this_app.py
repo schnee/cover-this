@@ -1,6 +1,7 @@
 import streamlit as st
 from cover_chain import generate_cover_letter
 from io import StringIO
+from io_utils import zip_it
 from mocker import assess_and_questions
 
 from pdf_utils import extract_text_from_pdf
@@ -34,6 +35,7 @@ if col3.button("Cover Letter"):
         resume_txt = extract_text_from_pdf(resume)
         cover_letter = generate_cover_letter(resume_txt, job_spec_text)
         st.markdown(cover_letter)
+        zip_it("job_spec", job_spec_text, resume.getvalue(), cover_letter)
     else:
         st.error("Please upload both a resume and job spec")
 
@@ -46,5 +48,6 @@ if col4.button("Assessment and Questions"):
         st.markdown("Here are some questions for the candidate:")
         for question in a_and_q.questions:
             st.markdown('- '+question)
+        zip_it("a_and_q", job_spec_text, resume.getvalue(), a_and_q.json(indent=2))
     else:
         st.error("Please upload both a resume and job spec")
