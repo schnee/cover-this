@@ -21,7 +21,7 @@ st.markdown("""This app will either generate a cover letter, or an assessment an
 st.markdown("""If you like this app, please consider buying me a coffee. :coffee: :coffee: :coffee:
             """)
 col1, col2 = st.columns(2)
-col1.link_button(":orange[Buy me a coffee :coffee:]", "https://www.buymeacoffee.com/mahkr",)
+col1.link_button(":orange[:coffee: Buy me a coffee :coffee:]", "https://www.buymeacoffee.com/mahkr",)
 #st.markdown("[![Buy me a coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://www.buymeacoffee.com/mahkr)")
 col2.link_button("Email me with feedback :email:", "mailto:schneeman@gmail.com?subject=Mahkr Feedback")
 st.header("Upload Resume")
