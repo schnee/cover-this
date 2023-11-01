@@ -1,14 +1,10 @@
 from dotenv import dotenv_values
 from langchain.callbacks import get_openai_callback
 from langchain.chains import LLMChain
-from langchain.chains.summarize import load_summarize_chain
 from langchain.output_parsers import PydanticOutputParser
-from langchain.chat_models import ChatOpenAI
-from langchain.docstore.document import Document
 from langchain.document_loaders import UnstructuredFileLoader
 from langchain.prompts import PromptTemplate
-from langchain.text_splitter import CharacterTextSplitter
-from cover_chain import process_resume, process_spec
+from document_processing import process_resume, process_spec
 from llmfactory import LLMFactory
 from pdf_utils import extract_text_from_pdf
 import pickle

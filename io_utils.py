@@ -1,12 +1,17 @@
 import zipfile
 from datetime import datetime
+import os
 
-# Existing code to get job_spec, resume, cover_letter
 def zip_it(type, spec, resume, content):
+
+  # Create storage dir if needed
+  if not os.path.exists('storage'):
+    os.makedirs('storage')
+
     now = datetime.now()
     timestamp = now.strftime("%Y%m%d%H%M%S")
 
-    zip_name = f"{type}_{timestamp}.zip"
+    zip_name = f"./storage/{type}_{timestamp}.zip"
 
     with zipfile.ZipFile(zip_name, 'w') as zip_file:
         zip_file.writestr("job_spec.txt", spec) 
