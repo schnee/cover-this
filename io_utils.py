@@ -5,8 +5,8 @@ import os
 def zip_it(type, spec, resume, content):
 
   # Create storage dir if needed
-  if not os.path.exists('storage'):
-    os.makedirs('storage')
+    if not os.path.exists('storage'):
+        os.makedirs('storage')
 
     now = datetime.now()
     timestamp = now.strftime("%Y%m%d%H%M%S")
