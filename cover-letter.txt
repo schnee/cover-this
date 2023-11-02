@@ -1,25 +1,32 @@
-Brent Schneeman
-1903 Barton Parkway
-Austin, TX 78704
+[Your Name]
+[Your Address]
+[City, State, ZIP Code]
+[Email Address]
+[Phone Number]
+[Today's Date]
 
-Cohere Health
+[Recipient's Name]
+[Recipient's Job Title]
+[Company Name]
 [Company Address]
-[City, State, ZIP]
+[City, State, ZIP Code]
 
-Dear Hiring Manager,
+Dear [Recipient's Name],
 
-I am writing to express my interest in the leadership position at Cohere Health. With my extensive experience in data science and leadership roles, I believe I am well-suited to consolidate and lead your machine learning, data science, data management, and business intelligence teams.
+I am writing to express my interest in the Data Science Leader position at Chime, as advertised on [Job Board/Company Website]. With my extensive experience in AI and machine learning, coupled with my leadership background, I believe I am well-suited for this role.
 
-As outlined in my resume, I have a proven track record of building and scaling durable teams across disciplines and companies. I have successfully combined my software engineering, machine learning, and leadership skills to drive rapid learning and hypothesis testing. My ability to foster a culture of curiosity and discovery has resulted in high-quality data insights being delivered efficiently.
+As stated in my attached resume, I have over 8 years of experience in data science, with a focus on machine learning engineering. Throughout my career, I have successfully solved business problems in domains such as Risk Management, Product Growth, and Member Experience Improvements. I have led data science and engineering teams at companies such as Overhaul, Alegion, Dosh, and HomeAway, where I implemented machine learning solutions in customer-facing applications.
 
-Collaboration with cross-functional teams is a key strength of mine, as demonstrated by my experience in guiding stakeholders and building teams to deliver internal and external data-as-a-product features. I have also led efforts in machine learning and data transformation pipelines, resulting in operational efficiencies and the realization of automation in data delivery to end customers.
+In addition to my technical expertise, I have a strong background in people management and remote team leadership. I have successfully grown managers and fostered a collaborative and inclusive work environment. I believe in the power of diverse teams and have an inclusive approach to hiring and supporting people.
 
-In addition to my leadership experience, I have a strong background in data science and familiarity with iterative delivery methodologies. I have hands-on experience in artificial intelligence, machine learning projects, natural language processing (NLP), and computer vision (CV). My expertise in these areas, combined with my excellent communication skills, make me an ideal candidate for this role.
+Furthermore, I possess a Bachelor's degree in a quantitative field and have certifications in neural networks, deep learning, and programming. I am well-versed in the model development lifecycle, experimentation methods, and machine learning technology trends. My strong communication skills have allowed me to establish partnerships across multiple organizations, driving successful outcomes.
 
-Furthermore, I have several years of experience in software engineering, particularly in financial technologies, which roughly aligns with the requirements stated in the job specification. My experience in this industry has provided me with a deep understanding of the challenges and opportunities in healthcare data management.
+I am proficient in scientific programming languages, particularly Python, and have some experience with cloud computing platforms, including AWS. I am always eager to learn and adapt to new technologies and methodologies.
 
-I am confident that my skills and experience make me a strong fit for the leadership position at Cohere Health. I am excited about the opportunity to contribute to your rapidly growing technology group and to help foster a culture of curiosity and discovery. Thank you for considering my application.
+The opportunity to join Chime as a Data Science Leader is truly exciting. I am drawn to the company's innovative approach and commitment to delivering exceptional member experiences. I am confident that my leadership experience, technical expertise, and passion for data science make me an ideal fit for this role.
+
+Thank you for considering my application. I would welcome the opportunity to discuss how my skills and experience align with Chime's needs in more detail. I have attached my resume for your review and look forward to hearing from you soon.
 
 Sincerely,
 
-Brent Schneeman
+[Your Name]
