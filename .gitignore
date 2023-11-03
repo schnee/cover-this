@@ -163,3 +163,4 @@ cover-letter.txt
 job-spec.txt
 
 storage/
+.streamlit/secrets.toml

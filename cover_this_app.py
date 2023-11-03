@@ -9,11 +9,11 @@ from models import QuestionList
 
 # this is the main app
 
-st.title("Cover Letter Generator")
+st.title("Mahkr Cover Letter Generator")
 
 
 
-st.markdown("""This app will either generate a cover letter, or an assessment and some sample
+st.markdown("""This app will either generate a cover letter DRAFT, or an assessment and some sample
             questions (for, e.g., a mock interview). Simply upload a resume, cut-and-paste a
             job specification and press the appropriate button. This site collects session-level
             information to improve the quality of the service provided.""")

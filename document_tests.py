@@ -1,6 +1,8 @@
 from document_processing import num_tokens_from_string, remove_stop_words
+from io_utils import zip_it
 from pdf_utils import extract_text_from_pdf
 from langchain.document_loaders import (UnstructuredFileLoader)
+import streamlit as st
 
 
 def main():
@@ -28,5 +30,8 @@ def main():
     filtered_spec = remove_stop_words(the_job_spec)
     print("Filtered spec tokens: ", num_tokens_from_string(filtered_spec, "cl100k_base"))
 
+    fn = zip_it("foobar", the_job_spec, the_resume, "garbage")
+
+    print(fn)
 if __name__ == "__main__":
     main()
