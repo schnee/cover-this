@@ -30,6 +30,10 @@ def main():
     filtered_spec = remove_stop_words(the_job_spec)
     print("Filtered spec tokens: ", num_tokens_from_string(filtered_spec, "cl100k_base"))
 
+# Display secrets
+    print(st.secrets["AWS_SECRET_ACCESS_KEY"])
+    print(st.secrets["AWS_ACCESS_KEY_ID"])
+
     fn = zip_it("foobar", the_job_spec, the_resume, "garbage")
 
     print(fn)
