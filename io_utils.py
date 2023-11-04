@@ -21,10 +21,10 @@ def zip_it(type, spec, resume, content):
     zip_name = f"mahkr-sessions/storage/{type}_{timestamp}.zip"
 
     with fs.open(zip_name, 'wb') as zip_file:
-        with zipfile.ZipFile(zip_file, mode='w', ) as zip_file:
-            zip_file.writestr("job_spec.txt", spec) 
-            zip_file.writestr("resume.pdf", resume)  
-            zip_file.writestr("content.txt", content)
+        with zipfile.ZipFile(zip_file, mode='w') as zip_file:
+            zip_file.writestr("job_spec.txt", spec, compress_type=zipfile.ZIP_DEFLATED) 
+            zip_file.writestr("resume.pdf", resume, compress_type=zipfile.ZIP_DEFLATED) 
+            zip_file.writestr("content.txt", content, compress_type=zipfile.ZIP_DEFLATED) 
 
     return zip_name
 
