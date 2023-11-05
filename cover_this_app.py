@@ -16,9 +16,7 @@ st.title("Mahkr Cover Letter Generator")
 st.markdown("""Stuck on writing a cover letter? Need some prep for an interview? Then this 
             app is for you. Upload a resume, provide a job spec, and let AI do its thing. You can
             get either a DRAFT cover letter or a job-assesment and list of sample questions at the 
-            push of a button.
-            
-            This site collects session-level information to improve the quality of the service provided.""")
+            push of a button. This site collects session-level information to improve the quality of the service provided.""")
 
 st.markdown("""If you like this app, please consider buying me a coffee. :coffee: :coffee: :coffee:
             """)
