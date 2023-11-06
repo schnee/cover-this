@@ -3,11 +3,14 @@ from cover_chain import generate_cover_letter
 from io import StringIO
 from io_utils import zip_it
 from mocker import assess_and_questions
-
+import uuid
 from pdf_utils import extract_text_from_pdf
 from models import QuestionList
 
 # this is the main app
+
+if "session_id" not in st.session_state:
+    st.session_state.session_id = uuid.uuid4()
 
 st.title("Mahkr Job Search Helper")
 

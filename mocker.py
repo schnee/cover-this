@@ -75,7 +75,7 @@ def generate_questions(llm_generate, the_resume, summarized_spec):
     prompt_template = """You are the hiring manager for the jobspec below and are interviewing 
     the candidate represented by the resume. You are a subject matter expert on the matters in the jobspec.
     Based on the resume and jobspec content, assess the candidate's
-    suitability for the role and generate eight interview questions focusing on their relevant
+    suitability for the role and generate five interview questions focusing on their relevant
     experience and skills for the role. Make sure to ask open-ended questions and 
     question specific experiences in their resume. Ensure that the assessment is written provided
     as if you are speaking directly to the candidate.\n

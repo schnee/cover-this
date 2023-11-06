@@ -25,8 +25,9 @@ def zip_it(type, spec, resume, content):
 
    
     timestamp = now.strftime("%Y%m%d%H%M%S")
+    session_id = st.session_state.session_id
 
-    basename = f"{type}_{timestamp}"
+    basename = f"{type}_{session_id}"
 
     zip_name = f"mahkr-sessions/{ymd}/{basename}.zip"
 
