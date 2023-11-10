@@ -19,9 +19,9 @@ st.title("Mahkr Job Search Helper")
 
 st.markdown("""Stuck on writing a cover letter? Need some prep for an interview? Then Mahkr
             is for you. Upload a resume, provide a job spec, and let AI do its thing. You can
-            get either a DRAFT cover letter or a job-assessment and list of sample questions at the 
-            push of a button. If you choose the job-assessment route, you'll unlock a mock interview
-            session!""")
+            get either a DRAFT cover letter or a job assessment. If you choose the assessment,
+            you'll have the option to get a deep dive into your fit, and participate in a
+            mock interview.""")
 
 st.markdown("""If you like this app, please consider buying me a coffee. :coffee: :coffee: :coffee:
             """)
@@ -59,7 +59,7 @@ if col3.button("Cover Letter"):
         st.error("Please upload both a resume and job spec")
 
 
-if col4.button("Assessment and Questions"):
+if col4.button("Assessment"):
     if resume and job_spec_text:
         the_resume = extract_text_from_pdf(resume)
         a_and_q = assess_and_questions(the_resume, job_spec_text)
