@@ -19,8 +19,9 @@ st.title("Mahkr Job Search Helper")
 
 st.markdown("""Stuck on writing a cover letter? Need some prep for an interview? Then Mahkr
             is for you. Upload a resume, provide a job spec, and let AI do its thing. You can
-            get either a DRAFT cover letter or a job-assesment and list of sample questions at the 
-            push of a button.""")
+            get either a DRAFT cover letter or a job-assessment and list of sample questions at the 
+            push of a button. If you choose the job-assessment route, you'll unlock a mock interview
+            session!""")
 
 st.markdown("""If you like this app, please consider buying me a coffee. :coffee: :coffee: :coffee:
             """)
@@ -38,7 +39,11 @@ st.header("Enter Job Spec")
 #job_spec = st.file_uploader("Choose a job spec", type=["txt"])
 
 job_spec_text = st.text_area("Cut-and-paste your job spec here", 
-                             value="Company Name: [fill in]\n[job spec goes here]",
+                             value="""Company Name: fill in\njob spec goes here. The job specification
+                             should contain the job description, duties, and candidate requirements / 
+                             desired experience. If these sections contain the company name, Mahkr is
+                             likely to extract it. In which case, you should remove the 'Company 
+                              Name' hint above. """,
                              height=100)
 
 col3,col4 = st.columns(2)
