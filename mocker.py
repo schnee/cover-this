@@ -72,13 +72,14 @@ def generate_questions(llm_generate, the_resume, summarized_spec):
 
     format_instructions = output_parser.get_format_instructions()
 
-    prompt_template = """You are the hiring manager for the jobspec below and are interviewing 
-    the candidate represented by the resume. You are a subject matter expert on the matters in the jobspec.
+    prompt_template = """You are a subject matter expert on the matters in the jobspec.
     Based on the resume and jobspec content, assess the candidate's
     suitability for the role and generate five interview questions focusing on their relevant
-    experience and skills for the role. Make sure to ask open-ended questions and 
+    experience and skills for the role. Make sure to generate open-ended questions and 
     question specific experiences in their resume. Ensure that the assessment is written provided
-    as if you are speaking directly to the candidate.\n
+    as if you are speaking directly to the candidate. 
+    
+    Tips: Make sure to format the response according to the format instructions and put no text after the list of questions.\n
     
         Resume: {resume}\n
 
