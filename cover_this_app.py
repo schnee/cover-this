@@ -1,6 +1,7 @@
 import streamlit as st
 from cover_chain import generate_cover_letter
 from io import StringIO
+from interviews.jobfit import run_interview
 from io_utils import zip_it
 from mocker import assess_and_questions
 import uuid
@@ -62,5 +63,15 @@ if col4.button("Assessment and Questions"):
         for question in a_and_q.questions:
             st.markdown('- '+question)
         zip_it("a_and_q", job_spec_text, resume.getvalue(), a_and_q.json(indent=2))
+        st.session_state.questions = '\n'.join(a_and_q.questions)
+        st.session_state.assessment = a_and_q.assessment
+        st.session_state.resume_txt = the_resume 
     else:
         st.error("Please upload both a resume and job spec")
+
+if "questions" in st.session_state and "assessment" in st.session_state:
+    st.header("Time for the mock interview!")
+    run_interview(job_spec_text, 
+                  st.session_state.resume_txt, 
+                  st.session_state.assessment, 
+                  st.session_state.questions)

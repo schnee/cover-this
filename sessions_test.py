@@ -1,7 +1,6 @@
 from streamlit import runtime
 from streamlit.runtime.scriptrunner import get_script_run_ctx
 
-
 def get_remote_ip() -> str:
     """Get remote ip."""
 
@@ -18,8 +17,13 @@ def get_remote_ip() -> str:
 
     return session_info.request.remote_ip
 
+def _get_session():
+    ctx = get_script_run_ctx()
+    session_id = ctx.session_id
+    return session_id
 
 import streamlit as st
 
 st.markdown("Title")
 st.markdown(f"The remote ip is {get_remote_ip()}")
+st.markdown(f"The Streamlit session id is {_get_session()}")

@@ -34,7 +34,7 @@ class LLMFactory:
         if(self.llm_provider == "OPENAI"):
             return ChatOpenAI(
                 model_name="gpt-3.5-turbo",
-                temperature=0.05,
+                temperature=0.5,
                 openai_api_key=self.api_key
             )
         elif(self.llm_provider == "GOOGLE"):
