@@ -38,12 +38,14 @@ resume = st.file_uploader("Choose a resume", type=["pdf"])
 st.header("Enter Job Spec")  
 #job_spec = st.file_uploader("Choose a job spec", type=["txt"])
 
+explanatory_txt = """Company Name: AwesomeCo\njob spec goes here. The job specification
+should contain the job description, duties, and candidate requirements / 
+desired experience. If these sections contain the company name, Mahkr is
+likely to extract it. In which case, you can remove the 'Company 
+Name' hint above. """
+
 job_spec_text = st.text_area("Cut-and-paste your job spec here", 
-                             value="""Company Name: fill in\njob spec goes here. The job specification
-                             should contain the job description, duties, and candidate requirements / 
-                             desired experience. If these sections contain the company name, Mahkr is
-                             likely to extract it. In which case, you should remove the 'Company 
-                              Name' hint above. """,
+                             value=explanatory_txt,
                              height=100)
 
 col3,col4 = st.columns(2)
