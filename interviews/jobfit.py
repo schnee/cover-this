@@ -152,7 +152,7 @@ def run_interview(jobspec, resume, assessment, init_questions):
             guideline = st.button("Deepdive into Interview Guideline")
         chat_placeholder = st.container()
         answer_placeholder = st.container()
-        # if submit email adress, get interview feedback imediately
+        
         if guideline:
             st.write(st.session_state.jd_guideline)
         if feedback:
