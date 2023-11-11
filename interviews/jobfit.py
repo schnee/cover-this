@@ -1,11 +1,8 @@
 import streamlit as st
 from typing import Literal
 from dataclasses import dataclass
-import json
-import base64
 from langchain.memory import ConversationBufferMemory
 from langchain.callbacks import get_openai_callback
-from langchain.chat_models import ChatOpenAI
 from langchain.chains import ConversationChain, RetrievalQA
 from langchain.prompts.prompt import PromptTemplate
 from langchain.text_splitter import NLTKTextSplitter
@@ -47,13 +44,13 @@ def initialize_session_state_interview(jd, assessment, init_questions):
 
     """ initialize session states """
     if 'jd_docsearch' not in st.session_state:
-        st.session_state.jd_docserch = save_vector(jd)
+        st.session_state.jd_docsearch = save_vector(jd)
     if 'assessment' not in st.session_state:
         st.session_state.assessment = assessment
     if 'init_questions' not in st.session_state:
         st.session_state.init_questions = init_questions
     if 'jd_retriever' not in st.session_state:
-        st.session_state.jd_retriever = st.session_state.jd_docserch.as_retriever(search_type="similarity")
+        st.session_state.jd_retriever = st.session_state.jd_docsearch.as_retriever(search_type="similarity")
     if 'jd_chain_type_kwargs' not in st.session_state:
         Interview_Prompt = PromptTemplate(input_variables=["context", "question"],
                                           template=templates.jd_template)
@@ -68,8 +65,8 @@ def initialize_session_state_interview(jd, assessment, init_questions):
         st.session_state.jd_history.append(Message("system",
                                            f"Initial Questions: {st.session_state.init_questions}"))
         st.session_state.jd_history.append(Message("ai",
-                                                   "Hello, Welcome to the interview. I am your interviewer today. I will ask you professional questions regarding the job description you submitted."
-                                                   "Please start by introducting a little bit about yourself. Note: The maximum length of your answer is 4097 tokens!"))
+                                                   "Hello, Welcome to the interview. I am Mahkr, your interviewer for today. We are here to determine your fit for the job in the specification."
+                                                   "Please start by introducing a little bit about yourself. Your answers can be a few paragraphs long if needed."))
     # token count
     if "token_count" not in st.session_state:
         st.session_state.token_count = 0
@@ -147,12 +144,12 @@ def run_interview(jobspec, resume, assessment, init_questions):
         # initialize session states
         initialize_session_state_interview(jobspec, assessment, init_questions)
         #st.write(st.session_state.jd_guideline)
-        credit_card_placeholder = st.empty()
+        interview_progress = st.empty()
         col1, col2 = st.columns(2)
         with col1:
             feedback = st.button("Get Interview Feedback")
         with col2:
-            guideline = st.button("Show me interview guideline!")
+            guideline = st.button("Deepdive into Interview Guideline")
         chat_placeholder = st.container()
         answer_placeholder = st.container()
         # if submit email adress, get interview feedback imediately
@@ -169,7 +166,7 @@ def run_interview(jobspec, resume, assessment, init_questions):
                 if answer:
                     st.session_state['answer'] = answer
                     answer_call_back()
-
+            interaction_len = 0# len(st.session_state.jd_history)
             with chat_placeholder:
                 # suppress system messages
 
@@ -177,12 +174,16 @@ def run_interview(jobspec, resume, assessment, init_questions):
                     if answer.origin == 'ai':
                         with st.chat_message("assistant"):
                             st.write(answer.message)
+                        interaction_len += 1#len(answer.message)
                     elif answer.origin == 'human':
                         with st.chat_message("user"):
                             st.write(answer.message)
+                        interaction_len += 1# len(answer.message)
 
-            credit_card_placeholder.caption(f"""
-            Progress: {int(len(st.session_state.jd_history) / 30 * 100)}% completed.\n
-            Cost: {st.session_state.interview_cost}""")
+            
+            cost_in_pennies = 100*round(st.session_state.interview_cost, 3)
+            interview_progress.caption(f"""
+            Progress: {100*round(interaction_len / 30, 2)}% completed.\n
+            Effort: {cost_in_pennies}""")
     else:
-        st.info("Please submit a job description to start the interview.")
+        st.info("Please submit a job description, resume, and initial assessment to start the interview.")

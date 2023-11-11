@@ -13,15 +13,14 @@ from models import QuestionList
 if "session_id" not in st.session_state:
     st.session_state.session_id = uuid.uuid4()
 
-st.title("Mahkr Job Search Helper")
+st.title("Mahkr Job Application Helper")
 
 
 
 st.markdown("""Stuck on writing a cover letter? Need some prep for an interview? Then Mahkr
             is for you. Upload a resume, provide a job spec, and let AI do its thing. You can
             get either a DRAFT cover letter or a job assessment. If you choose the assessment,
-            you'll have the option to get a deep dive into your fit, and participate in a
-            mock interview.""")
+            you'll have the option to get a deep dive into your fit for the role, and participate in a mock interview.""")
 
 st.markdown("""If you like this app, please consider buying me a coffee. :coffee: :coffee: :coffee:
             """)
@@ -38,11 +37,16 @@ resume = st.file_uploader("Choose a resume", type=["pdf"])
 st.header("Enter Job Spec")  
 #job_spec = st.file_uploader("Choose a job spec", type=["txt"])
 
-explanatory_txt = """Company Name: AwesomeCo\njob spec goes here. The job specification
-should contain the job description, duties, and candidate requirements / 
-desired experience. If these sections contain the company name, Mahkr is
-likely to extract it. In which case, you can remove the 'Company 
-Name' hint above. """
+explanatory_txt = """Company Name: AwesomeCo
+Job spec goes here. The job specification
+should contain 
+- the job description, 
+- the duties, and 
+- the candidate requirements / desired experience. 
+
+Usually, job specs have these sections.If these sections contain 
+the company name, Mahkr is likely to extract it. In which case, 
+you can remove the 'Company Name' hint above. """
 
 job_spec_text = st.text_area("Cut-and-paste your job spec here", 
                              value=explanatory_txt,
