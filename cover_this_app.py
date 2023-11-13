@@ -32,19 +32,19 @@ col1.link_button(":orange[:coffee: Buy me a coffee :coffee:]", "https://www.buym
 col2.link_button("Email me with feedback :email:", "mailto:schneeman@gmail.com?subject=Mahkr Feedback")
 
 st.header("Upload Resume")
-resume = st.file_uploader("Choose a resume", type=["pdf"])
+resume = st.file_uploader("Choose a resume in PDF format", type=["pdf"])
 
 st.header("Enter Job Spec")  
 #job_spec = st.file_uploader("Choose a job spec", type=["txt"])
 
 explanatory_txt = """Company Name: AwesomeCo
-Job spec goes here. The job specification
-should contain 
+
+Paste the job spec in this input field. The job specification should contain 
 - the job description, 
 - the duties, and 
 - the candidate requirements / desired experience. 
 
-Usually, job specs have these sections.If these sections contain 
+Usually, job specs have these sections. If these sections contain 
 the company name, Mahkr is likely to extract it. In which case, 
 you can remove the 'Company Name' hint above. """
 
