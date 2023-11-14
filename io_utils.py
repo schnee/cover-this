@@ -5,9 +5,7 @@ import fsspec
 from st_files_connection import FilesConnection
 import streamlit as st
 
-
-def zip_it(type, spec, resume, content):
-
+def initialize_fs():
     now = datetime.now(tz=pytz.utc)
     ymd = now.strftime("%Y%m%d")
 
@@ -22,9 +20,12 @@ def zip_it(type, spec, resume, content):
     # Create storage dir if needed
     if not fs.exists(f'mahkr-sessions/{ymd}'):
         fs.makedirs(f'mahkr-sessions/{ymd}')
+    return ymd,fs
 
-   
-    timestamp = now.strftime("%Y%m%d%H%M%S")
+def zip_it(type, spec, resume, content):
+
+    ymd, fs = initialize_fs()
+
     session_id = st.session_state.session_id
 
     basename = f"{type}_{session_id}"
@@ -39,25 +40,10 @@ def zip_it(type, spec, resume, content):
 
     return basename
 
-
 def zip_eval(the_interview, the_eval, the_guideline):
 
-    now = datetime.now(tz=pytz.utc)
-    ymd = now.strftime("%Y%m%d")
-
-    # determine the filesystem type
-    fstype = st.secrets["fstype"]
-    if fstype == "S3":
-        conn = st.experimental_connection("s3", type=FilesConnection)
-        fs = conn.fs
-    else:
-        fs = fsspec.filesystem('file')
+    ymd, fs = initialize_fs()
     
-    # Create storage dir if needed
-    if not fs.exists(f'mahkr-sessions/{ymd}'):
-        fs.makedirs(f'mahkr-sessions/{ymd}')
-
-   
     session_id = st.session_state.session_id
 
     basename = f"eval_{session_id}"
