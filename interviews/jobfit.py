@@ -9,6 +9,7 @@ from langchain.text_splitter import NLTKTextSplitter
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
 import nltk
+from io_utils import zip_eval
 from llmfactory import LLMFactory
 from prompts.prompts import templates
 
@@ -117,7 +118,7 @@ def initialize_session_state_interview(jd, assessment, init_questions):
         st.session_state.jd_feedback = ConversationChain(
             prompt=PromptTemplate(input_variables=["history", "input"], template=templates.feedback_template),
             llm=llm,
-            memory=st.session_state.jd_memory
+            memory=st.session_state.jd_memory,
             return_final_only=True
         )
 
@@ -161,6 +162,9 @@ def run_interview(jobspec, resume, assessment, init_questions):
                                                           take it one step at a time and keep the evaluation to less than 2500 words.
                                                           this evaluation is very important to securing the role.""")
             st.markdown(evaluation)
+            # create the strings to zip up
+            the_interview = "\n".join(st.session_state.jd_history)
+            zip_eval(the_interview, evaluation, st.session_state.jd_guideline)
             st.download_button(label="Download Interview Feedback", data=evaluation, file_name="interview_feedback.txt")
             st.stop()
         else:
