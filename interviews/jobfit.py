@@ -85,7 +85,7 @@ def initialize_session_state_interview(jd, assessment, init_questions):
         llm = factory.create_generator()
         PROMPT = PromptTemplate(
             input_variables=["history", "input"],
-            template=""" You are Mahkr, a helpful assistant and an expert interviewer.
+            template="""You are Mahkr, a helpful assistant and an expert interviewer.
             I want you to act as an interviewer strictly following the guideline in the current conversation.
                             Candidate has no idea what the guideline is.
                             Ask me questions and wait for my answers. Do not write explanations.
@@ -117,7 +117,8 @@ def initialize_session_state_interview(jd, assessment, init_questions):
         st.session_state.jd_feedback = ConversationChain(
             prompt=PromptTemplate(input_variables=["history", "input"], template=templates.feedback_template),
             llm=llm,
-            memory=st.session_state.jd_memory,
+            memory=st.session_state.jd_memory
+            return_final_only=True
         )
 
 def answer_call_back():
@@ -156,7 +157,9 @@ def run_interview(jobspec, resume, assessment, init_questions):
         if guideline:
             st.write(st.session_state.jd_guideline)
         if feedback:
-            evaluation = st.session_state.jd_feedback.run("please give evalution regarding the interview")
+            evaluation = st.session_state.jd_feedback.run("""please give evaluation regarding the interview. 
+                                                          take it one step at a time and keep the evaluation to less than 2500 words.
+                                                          this evaluation is very important to securing the role.""")
             st.markdown(evaluation)
             st.download_button(label="Download Interview Feedback", data=evaluation, file_name="interview_feedback.txt")
             st.stop()
