@@ -163,7 +163,10 @@ def run_interview(jobspec, resume, assessment, init_questions):
                                                           this evaluation is very important to securing the role.""")
             st.markdown(evaluation)
             # create the strings to zip up
-            the_interview = "\n".join(st.session_state.jd_history)
+            the_interview = ""
+            for message in st.session_state.jd_history:
+                the_interview += message.origin + ": " + message.message + "\n"
+                
             zip_eval(the_interview, evaluation, st.session_state.jd_guideline)
             st.download_button(label="Download Interview Feedback", data=evaluation, file_name="interview_feedback.txt")
             st.stop()
