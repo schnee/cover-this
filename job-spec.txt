@@ -1,33 +1,22 @@
+Oura is an award-winning company that helps people track their sleep, activity, and other biometrics using the Oura Ring and connected app. By providing daily feedback and practical steps to inspire healthy lifestyles, we've helped over a million people improve their sleep, understand their bodies, and transform their health. We’re on a mission to make health a daily practice for everyone, and we’re seeking a pivotal leader to join our journey at this very exciting time.
 
-Chime is seeking a data science leader to support, manage, and grow our data science teams. You will lead teams of high-performing data scientists, driving cutting-edge data solutions, ranging from machine learning models to experimentation platforms, and shaping our data strategy. Our ideal candidate is curious, rigorously data-driven, with extensive experience leading and a passion for solving business problems.
+Empowering the world starts with living  and empowering our team. As a quickly growing company focused on helping people live healthier and happier lives, we ensure that our team members have what they need to do their best work — both in and out of the office.
 
+We are looking for a Head of Data Science (USA, location East Coast Time Zones) This individual sets the strategy and direction for Data Science and manages all data scientists and data science managers within Software Engineering, as well as supporting and guiding data science work within our Science org. The DS team’s primary responsibility is developing, implementing and maintaining the many machine learning models that power our product. The Head of DS also manages our Decision Science team, which supports Marketing, Finance, Product, and Member Experience with advanced analytics and data for business decision making.
 
-The base salary offered for this role and level of experience will begin at $249,300 and up to $353,200. Full-time employees are also eligible for a bonus, competitive equity package, and benefits. The actual base salary offered may be higher, depending on your location, skills, qualifications, and experience.
+You will be an inspiring and nurturing leader for your team and the many colleagues you interact with regularly. You will empower your team by bringing them better processes and tools, understanding and enabling their career goals, and growing and training the team to meet future needs. You will be an advocate for Data Science and Software Engineering as you collaborate with Product, Science and other stakeholders to set our product strategy for the coming years.
 
+Requirements
+We would love to have you lead our team if you:
 
-In this role, you can expect to
-
-
-Be human; Focus on people happiness by ensuring folks have the support they need as individuals and through an innovative & collaborative environment
-Be a leader; Work closely with our business partners, product leaders, and data teams to identify, lead, and deliver data solutions and strategies
-Be a mentor; Develop team members and foster a culture of innovation, collaboration and continuous improvement
-Get it done; Track record of delivering data-driven products, insights, and influencing product and engineering decisions
-Drive clarity; Ability to understand complex business problems and break down projects into a structured approach
-Enable growth; Maintain a high bar in terms of product thinking and analytical depth for your team through selective hiring and mentorship
-Be an advocate; Evangelize the power of data science to understand and improve our business and operations
-
-
-To thrive in this role, you have
-
-
-5+ years of people management experience, remote teams, growing managers, and supporting data scientists
-8+ years of experience in Data Science, preferably in Machine Learning Engineering
-Experience in solving business problems with Data Science in one or more of these domains: Risk Management, Product Growth, Member Experience Improvements.
-Bachelors, Masters, or Ph.D. (or applicable experience) in a quantitative field (Economics, Computer Science, Statistics, Physics, etc.)
-An inclusive approach to hiring and supporting people
-Strong communication skills and the ability to simplify complex ideas and methodologies, and influence a broad spectrum of audiences
-Working knowledge of model development lifecycle, experimentation methods, machine learning technology trends and landscape that drive business innovations
-Proven judgment in balancing practical business needs and scientific rigor
-Proven track record establishing and building partnerships across multiple organizations
-Knowledge of a scientific programming language, such as Python
-Some experience with cloud computing platforms, such as AWS
+Are passionate about our mission of making health a daily practice, bringing better wellbeing to millions worldwide
+Thrive in a fast-paced, sometimes unpredictable, and highly collaborative work environment
+Have seven or more years of work experience as a data scientist or machine learning engineer, including developing models for deployment to products and managing their deployment
+Have five or more years of work experience in a leadership role, including three or more in a senior leadership position similar to this
+Spearhead a team of 15+ Data Scientists, mentoring and providing direction
+Have experience evaluating new data platforms and tools, managing relationships with vendors, and helping to oversee their integration
+Bring experience and opinions about organizational design, ways of working, and data governance, but are flexible and able to collaborate with others to level up our strategy and operations
+Are familiar with best practices in data privacy, security, and quality, and able to contribute to company-wide standards around data in a sensitive and highly regulated space
+Have familiarity with modern software development processes and the ability to work with product managers to evaluate and contribute to their roadmaps
+Familiarity with any of the following a plus: AWS, PyTorch, time series analysis, signal processing, causal inference, large language models, physiological or wearable data, ML at the edge
+Some travel to Finland and/or San Franciso will be needed.

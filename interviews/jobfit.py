@@ -53,7 +53,9 @@ def initialize_session_state_interview(jd, assessment, init_questions):
     if 'jd_retriever' not in st.session_state:
         st.session_state.jd_retriever = st.session_state.jd_docsearch.as_retriever(search_type="similarity")
     if 'jd_chain_type_kwargs' not in st.session_state:
+        pv = {"assessment": f"{st.session_state.assessment}"}
         Interview_Prompt = PromptTemplate(input_variables=["context", "question"],
+                                          partial_variables=pv,
                                           template=templates.jd_template)
         st.session_state.jd_chain_type_kwargs = {"prompt": Interview_Prompt}
     if 'jd_memory' not in st.session_state:
@@ -61,10 +63,6 @@ def initialize_session_state_interview(jd, assessment, init_questions):
     # interview history
     if "jd_history" not in st.session_state:
         st.session_state.jd_history = []
-        st.session_state.jd_history.append(Message("system",
-                                           f"Initial Assessment: {st.session_state.assessment}"))
-        st.session_state.jd_history.append(Message("system",
-                                           f"Initial Questions: {st.session_state.init_questions}"))
         st.session_state.jd_history.append(Message("ai",
                                                    "Hello, Welcome to the interview. I am Mahkr, your interviewer for today. We are here to determine your fit for the job in the specification."
                                                    "Please start by introducing a little bit about yourself. Your answers can be a few paragraphs long if needed."))
