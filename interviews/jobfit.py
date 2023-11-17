@@ -53,7 +53,7 @@ def initialize_session_state_interview(jd, assessment, init_questions):
     if 'jd_retriever' not in st.session_state:
         st.session_state.jd_retriever = st.session_state.jd_docsearch.as_retriever(search_type="similarity")
     if 'jd_chain_type_kwargs' not in st.session_state:
-        pv = {"assessment": f"{st.session_state.assessment}"}
+        pv = {"assessment": st.session_state.assessment}
         Interview_Prompt = PromptTemplate(input_variables=["context", "question"],
                                           partial_variables=pv,
                                           template=templates.jd_template)

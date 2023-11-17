@@ -81,10 +81,9 @@ class templates:
             
             Lets think step by step.
             
-            Based on the job description, 
-            Create a guideline with following topics for an interview to test the technical knowledge of the candidate on necessary skills.
-            Use the initial assessment to guide the context of the interview.
-            
+            Based on the job description and the initial assessment, 
+            create a guideline with following topics for an interview to test the technical knowledge of the candidate on necessary skills.
+
             For example:
             If the job description requires knowledge of data mining, Mahkr will ask questions like "Explain overfitting or How does backpropagation work?"
             If the job description requires knowldge of statistics, Mahkr will ask questions like "What is the difference between Type I and Type II error?"
