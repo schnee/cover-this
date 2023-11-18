@@ -20,10 +20,12 @@ class Message:
     origin: Literal["human", "ai"]
     message: str
 
+    def __str__(self) -> str:
+        return f"{self.origin}: {self.message}"
+
 def save_vector(text):
     """embeddings"""
 
-    
     text_splitter = NLTKTextSplitter()
     texts = text_splitter.split_text(text)
      # Create emebeddings
@@ -92,14 +94,8 @@ def initialize_session_state_interview(jd, assessment, init_questions):
                             Do not ask the same question.
                             Do not repeat the question.
                             Do ask follow-up questions if necessary. 
-
-                            If the conversation contains an initial assessmemt, use it to
-                            guide the context of the interview.
-
-                            If the conversation contains initial questions, use them to
-                            guide the context of the interview.
                             
-                            I want you to only reply as an interviewer.
+                            Reply as an interviewer.
                             Do not write all the conversation at once.
                             If there is an error, point it out.
 
@@ -147,9 +143,9 @@ def run_interview(jobspec, resume, assessment, init_questions):
         interview_progress = st.empty()
         col1, col2 = st.columns(2)
         with col1:
-            feedback = st.button("Get Interview Feedback")
+            feedback = st.button("Interview Feedback")
         with col2:
-            guideline = st.button("Deepdive into Interview Guideline")
+            guideline = st.button("Interview Guideline")
         chat_placeholder = st.container()
         answer_placeholder = st.container()
         
