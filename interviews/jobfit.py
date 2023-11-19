@@ -45,7 +45,7 @@ def initialize_session_state_interview(jd, assessment, init_questions):
         print('Downloading punkt')
         nltk.download('punkt')
 
-    """ initialize session states """
+    # initialize session states
     if 'jd_docsearch' not in st.session_state:
         st.session_state.jd_docsearch = save_vector(jd)
     if 'assessment' not in st.session_state:
@@ -80,30 +80,14 @@ def initialize_session_state_interview(jd, assessment, init_questions):
             llm=llm,
             chain_type_kwargs=st.session_state.jd_chain_type_kwargs, chain_type='stuff',
             retriever=st.session_state.jd_retriever, 
-            memory = st.session_state.jd_memory).run("Create an interview guideline and prepare only one questions for each topic. Make sure the questions tests the technical knowledge")
+            memory = st.session_state.jd_memory).run("""Create an interview guideline and prepare only one question for each topic in the job description. 
+                                                     Make sure the prepared questions test the candidate's knowledge of the job description's topics.""")
     # llm chain and memory
     if "jd_screen" not in st.session_state:
         llm = factory.create_generator()
         PROMPT = PromptTemplate(
             input_variables=["history", "input"],
-            template="""You are Mahkr, a helpful assistant and an expert interviewer.
-            I want you to act as an interviewer strictly following the guideline in the current conversation.
-                            Candidate has no idea what the guideline is.
-                            Ask me questions and wait for my answers. Do not write explanations.
-                            Ask question like a real person, only one question at a time.
-                            Do not ask the same question.
-                            Do not repeat the question.
-                            Do ask follow-up questions if necessary. 
-                            
-                            Reply as an interviewer.
-                            Do not write all the conversation at once.
-                            If there is an error, point it out.
-
-                            Current Conversation:
-                            {history}
-
-                            Candidate: {input}
-                            AI: """)
+            template=templates.jd_screen_template)
 
         st.session_state.jd_screen = ConversationChain(prompt=PROMPT, llm=llm,
                                                            memory=st.session_state.jd_memory)
@@ -159,7 +143,7 @@ def run_interview(jobspec, resume, assessment, init_questions):
             # create the strings to zip up
             the_interview = ""
             for message in st.session_state.jd_history:
-                the_interview += message.origin + ": " + message.message + "\n"
+                the_interview += message.origin + ": " + message.message + "\n\n"
                 
             zip_eval(the_interview, evaluation, st.session_state.jd_guideline)
             st.download_button(label="Download Interview Feedback", data=evaluation, file_name="interview_feedback.txt")
