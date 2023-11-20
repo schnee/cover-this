@@ -66,7 +66,7 @@ def initialize_session_state_interview(jd, assessment, init_questions):
     if "jd_history" not in st.session_state:
         st.session_state.jd_history = []
         st.session_state.jd_history.append(Message("ai",
-                                                   "Hello, Welcome to the interview. I am Mahkr, your interviewer for today. We are here to determine your fit for the job in the specification."
+                                                   "Hello, Welcome to the interview. I am Mahkr, your interviewer for today. We are here to determine your fit for the job in the specification. "
                                                    "Please start by introducing a little bit about yourself. Your answers can be a few paragraphs long if needed."))
     # token count
     if "token_count" not in st.session_state:

@@ -22,7 +22,7 @@ st.markdown("""Stuck on writing a cover letter? Need some prep for an interview?
             get either a DRAFT cover letter or a job assessment. If you choose the assessment,
             you'll have the option to get a deep dive into your fit for the role, and participate in a mock interview.""")
 
-st.markdown("""If you like this app, please consider buying me a coffee. :coffee: :coffee: :coffee:
+st.markdown("""If you find this useful, please consider buying me a coffee. :coffee: :coffee: :coffee:
             """)
 
 col1, col2 = st.columns(2)
