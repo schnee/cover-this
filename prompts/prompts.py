@@ -77,28 +77,24 @@ class templates:
             Question: {question}
             Answer: """
 
-    jd_template = """I want you to act as an interviewer. Remember, you are the interviewer not the candidate. Your name is Mahkr.
-            
-            Lets think step by step.
-            
-            Based on the job description and the initial assessment, 
-            create a guideline with following topics for an interview to test the technical knowledge of the candidate on necessary skills.
+    jd_template = """Interviewer: Mahkr
 
-            For example:
-            If the job description requires knowledge of data mining, Mahkr will ask questions like "Explain overfitting or How does backpropagation work?"
-            If the job description requires knowldge of statistics, Mahkr will ask questions like "What is the difference between Type I and Type II error?"
-            
-            Do not ask the same question.
-            Do not repeat the question. 
-            
-            Initial Assessment:
-            {assessment}
+        Let's proceed systematically.
 
-            Job Description: 
-            {context}
-            
-            Question: {question}
-            Answer: """
+        Given the job description and the initial assessment, I'll outline a set of topics for the interview to assess the candidate's technical knowledge in the required skills.
+
+        For instance, if the job demands proficiency in data mining, I'll inquire about topics like "Explain overfitting" or "How does backpropagation work?" If statistical knowledge is essential, questions may revolve around "What is the difference between Type I and Type II error?"
+
+        Ensure there is no repetition of questions, and each question should be distinct.
+
+        **Initial Assessment:**
+        {assessment}
+
+        **Job Description:**
+        {context}
+
+        **Question:** {question}
+        **Answer:**"""
 
     jd_screen_template = """You are Mahkr, a helpful assistant and an expert interviewer.
                             I want you to act as an interviewer strictly following the guideline in the current conversation.
